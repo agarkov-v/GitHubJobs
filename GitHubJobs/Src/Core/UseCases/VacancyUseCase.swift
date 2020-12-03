@@ -57,7 +57,7 @@ class VacancyUseCaseImp: VacancyUseCase {
                     self.source.onNext(self.items)
                 }, onError: { error in
                     self.isLoadingInProcess = false
-                    print("VacancyUseCase error: \(error)")
+                    print("VacancyUseCase error: \(error) || \(error.localizedDescription)")
                 })
                 .asCompletable()
         }
