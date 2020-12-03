@@ -51,8 +51,6 @@ DerivedData
 Pods/
 .idea
 
-# Fastlane
-fastlane/README.md
-fastlane/report.xml
-fastlane/test_output
-/fastlane/team_confidential.yml
+# Rswift
+#
+*.generated.swift

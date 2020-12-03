@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StubLoad" customModule="GitHubJobs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWM-nA-god">
+                    <rect key="frame" x="164.5" y="405.5" width="85" height="85"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fWJ-LL-wJT">
+                            <rect key="frame" x="24" y="11" width="37" height="37"/>
+                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8F-Ni-lND">
+                            <rect key="frame" x="5.5" y="53" width="74.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="inactiveGray"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="b8F-Ni-lND" firstAttribute="centerX" secondItem="MWM-nA-god" secondAttribute="centerX" id="3DT-0P-VKH"/>
+                        <constraint firstItem="fWJ-LL-wJT" firstAttribute="top" secondItem="MWM-nA-god" secondAttribute="top" constant="11" id="4gM-0M-UHN"/>
+                        <constraint firstAttribute="width" secondItem="MWM-nA-god" secondAttribute="height" multiplier="1:1" id="BW7-Us-dSG"/>
+                        <constraint firstAttribute="height" constant="85" id="I8J-F6-hJl"/>
+                        <constraint firstItem="fWJ-LL-wJT" firstAttribute="centerX" secondItem="MWM-nA-god" secondAttribute="centerX" id="Inl-lg-7cV"/>
+                        <constraint firstItem="b8F-Ni-lND" firstAttribute="top" secondItem="fWJ-LL-wJT" secondAttribute="bottom" constant="5" id="htT-1I-9Tl"/>
+                        <constraint firstAttribute="bottom" secondItem="b8F-Ni-lND" secondAttribute="bottom" constant="11" id="kOv-NR-6Qs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="backgroundColor"/>
+            <constraints>
+                <constraint firstItem="MWM-nA-god" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="T1w-Ii-eO7"/>
+                <constraint firstItem="MWM-nA-god" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="msq-52-bQY"/>
+            </constraints>
+            <connections>
+                <outlet property="activityIndicator" destination="fWJ-LL-wJT" id="IeQ-QE-Emm"/>
+                <outlet property="backgroundView" destination="MWM-nA-god" id="jUK-Yl-thI"/>
+                <outlet property="messageLabel" destination="b8F-Ni-lND" id="XUd-0m-fnj"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="inactiveGray">
+            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.7686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
