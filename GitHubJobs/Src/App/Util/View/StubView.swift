@@ -10,11 +10,13 @@ import UIKit
 enum StubType {
     case noData
     case somethingWrong
+    case networkError
     
     static func getImage(_ type: StubType) -> UIImage {
         switch type {
         case .noData: return R.image.noDataPlaceholder()!
         case .somethingWrong: return R.image.errorPlaceholder()!
+        case .networkError: return R.image.wifiPlaceholder()!
         }
     }
     
@@ -22,6 +24,7 @@ enum StubType {
         switch type {
         case .noData: return "Wow!"
         case .somethingWrong: return "Oops!"
+        case .networkError: return "Ouch!"
         }
     }
     
@@ -29,6 +32,7 @@ enum StubType {
         switch type {
         case .noData: return "There is no info yet"
         case .somethingWrong: return "Something went wrong"
+        case .networkError: return "Poor Internet connection"
         }
     }
 }
@@ -40,7 +44,7 @@ class StubView: UIView {
     @IBOutlet weak var stubMessage: UILabel!
     
     func setup(_ image: UIImage, _ title: String, _ message: String) {
-        let textColor = R.color.inactiveGray()!
+        let textColor = R.color.inactiveGrayColor()!
         stubImage.image = image
         stubTitle.text = title
         stubMessage.text = message
@@ -53,7 +57,7 @@ class StubView: UIView {
     }
     
     func setup(_ type: StubType) {
-        let textColor = R.color.inactiveGray()!
+        let textColor = R.color.inactiveGrayColor()!
         stubImage.image = StubType.getImage(type)
         stubTitle.text = StubType.getTitle(type)
         stubMessage.text = StubType.getMessage(type)

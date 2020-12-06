@@ -43,5 +43,56 @@ class DateFormatUtil {
             return simpleDateFormat(time: date.timeIntervalSince1970)
         } else { return nil }
     }
+    
+    static func convertDateFormatToString(dateString: String, fromFormat: String, toFotmat: String) -> String? {
+        let fromDateFormat = DateFormatter()
+        fromDateFormat.dateFormat = fromFormat
+        fromDateFormat.timeZone = TimeZone(abbreviation: "UTC")
+
+        let toDateFormat = DateFormatter()
+        toDateFormat.dateFormat = toFotmat
+        toDateFormat.timeZone = TimeZone(abbreviation: "UTC")
+
+        if let date = fromDateFormat.date(from: dateString) {
+//            debugPrint("convertDateFormat success: \(toDateFormat.string(from: date))")
+            return toDateFormat.string(from: date)
+        } else {
+            debugPrint("convertDateFormat: there was an error decoding the string")
+            return nil
+        }
+    }
+    
+    static func convertDateFormatToDate(dateString: String, fromFormat: String, toFotmat: String) -> Date? {
+        let fromDateFormat = DateFormatter()
+        fromDateFormat.dateFormat = fromFormat
+        fromDateFormat.timeZone = TimeZone(abbreviation: "UTC")
+
+        let toDateFormat = DateFormatter()
+        toDateFormat.dateFormat = toFotmat
+        toDateFormat.timeZone = TimeZone(abbreviation: "UTC")
+
+        if let date = fromDateFormat.date(from: dateString) {
+//            debugPrint("convertDateFormat success: \(toDateFormat.string(from: date))")
+            let formattedString = toDateFormat.string(from: date)
+            return toDateFormat.date(from: formattedString)
+        } else {
+            debugPrint("convertDateFormat: there was an error decoding the string")
+            return nil
+        }
+    }
+    
+    static func convertToDate(dateString: String, format: String) -> Date {
+        customFormatter.dateFormat = format
+//        customFormatter.timeZone = TimeZone.current
+        customFormatter.dateStyle = .short
+        guard let date = (customFormatter.date(from: dateString)) else { return Date() }
+        return date
+    }
+    
+    static func convertDateToString(date: Date, format: String) -> String {
+        customFormatter.dateFormat = format
+        let dateString = customFormatter.string(from: date)
+        return dateString
+    }
 }
 

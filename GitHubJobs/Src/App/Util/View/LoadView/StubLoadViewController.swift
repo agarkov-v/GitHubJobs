@@ -60,7 +60,7 @@ class StubLoadViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .whiteLarge
         activityIndicator.color = .white
-        messageLabel.textColor = R.color.inactiveGray()
+        messageLabel.textColor = R.color.inactiveGrayColor()
         messageLabel.text = "Loading..."
         
         closeView.backgroundColor = .clear

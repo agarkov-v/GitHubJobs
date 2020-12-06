@@ -19,52 +19,65 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS Developer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp0-fC-aOE">
-                        <rect key="frame" x="16" y="16" width="288" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oggetto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xq-hf-cx6">
-                        <rect key="frame" x="16" y="41.5" width="288" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" name="inactiveGray"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to apply:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgS-WC-5Dg">
-                        <rect key="frame" x="16" y="74.5" width="288" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="https://howtoapply.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xXv-Qb-ZVn">
-                        <rect key="frame" x="16" y="100.5" width="288" height="36.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="textColor" systemColor="labelColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPe-wn-yVZ">
+                        <rect key="frame" x="10" y="5" width="300" height="143"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS Developer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp0-fC-aOE">
+                                <rect key="frame" x="6" y="6" width="113.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oggetto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xq-hf-cx6">
+                                <rect key="frame" x="6" y="31.5" width="46.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="secondaryGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to apply:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgS-WC-5Dg">
+                                <rect key="frame" x="6" y="61" width="104.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="https://howtoapply.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xXv-Qb-ZVn">
+                                <rect key="frame" x="6" y="87" width="142.5" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" name="cellColor"/>
+                        <constraints>
+                            <constraint firstItem="xXv-Qb-ZVn" firstAttribute="leading" secondItem="jPe-wn-yVZ" secondAttribute="leading" constant="6" id="5ZN-Dd-5Hm"/>
+                            <constraint firstItem="1xq-hf-cx6" firstAttribute="top" secondItem="mp0-fC-aOE" secondAttribute="bottom" constant="5" id="Air-Wo-XCo"/>
+                            <constraint firstItem="bgS-WC-5Dg" firstAttribute="top" secondItem="1xq-hf-cx6" secondAttribute="bottom" constant="15" id="Dz4-FL-DsT"/>
+                            <constraint firstItem="mp0-fC-aOE" firstAttribute="top" secondItem="jPe-wn-yVZ" secondAttribute="top" constant="6" id="KX2-Jm-yvR"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xXv-Qb-ZVn" secondAttribute="trailing" constant="6" id="NqC-ul-Ofc"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bgS-WC-5Dg" secondAttribute="trailing" constant="6" id="OB3-5X-uqH"/>
+                            <constraint firstItem="1xq-hf-cx6" firstAttribute="leading" secondItem="jPe-wn-yVZ" secondAttribute="leading" constant="6" id="Q7g-34-NXn"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mp0-fC-aOE" secondAttribute="trailing" constant="6" id="XYt-nH-BUg"/>
+                            <constraint firstItem="bgS-WC-5Dg" firstAttribute="leading" secondItem="jPe-wn-yVZ" secondAttribute="leading" constant="6" id="iJN-Aw-E9S"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1xq-hf-cx6" secondAttribute="trailing" constant="6" id="iYJ-4R-3qz"/>
+                            <constraint firstItem="mp0-fC-aOE" firstAttribute="leading" secondItem="jPe-wn-yVZ" secondAttribute="leading" constant="6" id="o1l-ro-B66"/>
+                            <constraint firstItem="xXv-Qb-ZVn" firstAttribute="top" secondItem="bgS-WC-5Dg" secondAttribute="bottom" constant="5" id="sXL-dj-cfc"/>
+                            <constraint firstAttribute="bottom" secondItem="xXv-Qb-ZVn" secondAttribute="bottom" constant="6" id="wHA-Rg-Dfx"/>
+                        </constraints>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" name="cellColor"/>
+                <color key="backgroundColor" name="backgroundColor"/>
                 <constraints>
-                    <constraint firstItem="bgS-WC-5Dg" firstAttribute="top" secondItem="1xq-hf-cx6" secondAttribute="bottom" constant="15" id="50v-pP-El2"/>
-                    <constraint firstAttribute="trailing" secondItem="mp0-fC-aOE" secondAttribute="trailing" constant="16" id="74i-PS-SDh"/>
-                    <constraint firstItem="1xq-hf-cx6" firstAttribute="top" secondItem="mp0-fC-aOE" secondAttribute="bottom" constant="5" id="90C-hJ-9OL"/>
-                    <constraint firstItem="xXv-Qb-ZVn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="H56-nB-Wyr"/>
-                    <constraint firstAttribute="trailing" secondItem="xXv-Qb-ZVn" secondAttribute="trailing" constant="16" id="HCK-Zm-n1t"/>
-                    <constraint firstItem="xXv-Qb-ZVn" firstAttribute="top" secondItem="bgS-WC-5Dg" secondAttribute="bottom" constant="5" id="Hdo-NR-z3e"/>
-                    <constraint firstItem="bgS-WC-5Dg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Hjh-a8-Qfg"/>
-                    <constraint firstAttribute="trailing" secondItem="1xq-hf-cx6" secondAttribute="trailing" constant="16" id="QYM-VM-zrR"/>
-                    <constraint firstAttribute="trailing" secondItem="bgS-WC-5Dg" secondAttribute="trailing" constant="16" id="aWt-D4-HjR"/>
-                    <constraint firstItem="1xq-hf-cx6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eqD-wW-OnG"/>
-                    <constraint firstItem="mp0-fC-aOE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="pGs-86-mNJ"/>
-                    <constraint firstAttribute="bottom" secondItem="xXv-Qb-ZVn" secondAttribute="bottom" constant="16" id="zfN-2b-n1S"/>
-                    <constraint firstItem="mp0-fC-aOE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="zwn-3n-5AH"/>
+                    <constraint firstItem="jPe-wn-yVZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="cqw-qq-nMX"/>
+                    <constraint firstAttribute="trailing" secondItem="jPe-wn-yVZ" secondAttribute="trailing" constant="10" id="p0A-IB-yo2"/>
+                    <constraint firstItem="jPe-wn-yVZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="wWC-8d-3dX"/>
+                    <constraint firstAttribute="bottom" secondItem="jPe-wn-yVZ" secondAttribute="bottom" constant="5" id="zPR-Bk-RLb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="applyTextView" destination="xXv-Qb-ZVn" id="cie-rK-fw3"/>
+                <outlet property="backgroundVacancyView" destination="jPe-wn-yVZ" id="cAo-vC-L3z"/>
                 <outlet property="companyNameLabel" destination="1xq-hf-cx6" id="ykE-Qm-x7f"/>
                 <outlet property="vacancyLabel" destination="mp0-fC-aOE" id="Iwi-xn-4PJ"/>
             </connections>
@@ -72,11 +85,14 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="cellColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="backgroundColor">
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="inactiveGray">
-            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.7686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="cellColor">
+            <color red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="secondaryGrayColor">
+            <color red="0.44705882352941179" green="0.44705882352941179" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

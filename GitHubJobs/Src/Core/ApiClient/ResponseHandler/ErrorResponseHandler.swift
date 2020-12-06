@@ -43,7 +43,6 @@ open class ErrorResponseHandler: ResponseHandler {
         } else {
             return true
         }
-        //        return false
     }
 }
 

@@ -9,12 +9,12 @@ import RxSwift
 
 protocol VacancyGateway {
     
-    func getVacancy(page: Int) -> Single<PaginationEntity<VacancyEntity>>
+    func getVacancy(page: Int) -> Single<[VacancyEntity]>
 }
 
 class ApiVacancyGateway: ApiBaseGateway, VacancyGateway {
     
-    func getVacancy(page: Int) -> Single<PaginationEntity<VacancyEntity>> {
+    func getVacancy(page: Int) -> Single<[VacancyEntity]> {
         return self.apiClient.execute(request: .vacancyRequest(page: page))
     }
 }

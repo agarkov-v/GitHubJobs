@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230644B0257A5CD600C4465A /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644AF257A5CD600C4465A /* CustomNavigationController.swift */; };
+		230644B4257A8DD500C4465A /* VacancyForDayEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644B3257A8DD500C4465A /* VacancyForDayEntity.swift */; };
 		2346DCA42577B40D00F80661 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCA32577B40D00F80661 /* R.generated.swift */; };
 		2346DCC32577B56B00F80661 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCC22577B56B00F80661 /* DI.swift */; };
 		2346DCCB2577B6A200F80661 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCCA2577B6A200F80661 /* ApiEndpoint.swift */; };
@@ -40,7 +42,6 @@
 		2346DD2B2577D4F100F80661 /* View+animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD2A2577D4F100F80661 /* View+animation.swift */; };
 		2346DD2E257807EE00F80661 /* VacancyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD2D257807EE00F80661 /* VacancyEntity.swift */; };
 		2346DD3225780C7100F80661 /* ApiVacancyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD3125780C7100F80661 /* ApiVacancyGateway.swift */; };
-		2346DD3525780CC900F80661 /* PaginationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD3425780CC900F80661 /* PaginationEntity.swift */; };
 		2346DD3925780D9900F80661 /* VacancyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD3825780D9900F80661 /* VacancyUseCase.swift */; };
 		2346DD58257814B800F80661 /* ExtendedLoggingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD57257814B800F80661 /* ExtendedLoggingInterceptor.swift */; };
 		2346DD5C2578156300F80661 /* ErrorResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD5B2578156300F80661 /* ErrorResponseHandler.swift */; };
@@ -53,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		230644AF257A5CD600C4465A /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		230644B3257A8DD500C4465A /* VacancyForDayEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyForDayEntity.swift; sourceTree = "<group>"; };
 		2346DCA32577B40D00F80661 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		2346DCC22577B56B00F80661 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		2346DCCA2577B6A200F80661 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
@@ -86,7 +89,6 @@
 		2346DD2A2577D4F100F80661 /* View+animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+animation.swift"; sourceTree = "<group>"; };
 		2346DD2D257807EE00F80661 /* VacancyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyEntity.swift; sourceTree = "<group>"; };
 		2346DD3125780C7100F80661 /* ApiVacancyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiVacancyGateway.swift; sourceTree = "<group>"; };
-		2346DD3425780CC900F80661 /* PaginationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationEntity.swift; sourceTree = "<group>"; };
 		2346DD3825780D9900F80661 /* VacancyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyUseCase.swift; sourceTree = "<group>"; };
 		2346DD57257814B800F80661 /* ExtendedLoggingInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedLoggingInterceptor.swift; sourceTree = "<group>"; };
 		2346DD5B2578156300F80661 /* ErrorResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseHandler.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 				B7F7460E40059597F43FC2AD /* Pods_GitHubJobs.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		230644AE257A5CB100C4465A /* CustomNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				230644AF257A5CD600C4465A /* CustomNavigationController.swift */,
+			);
+			path = CustomNavigationController;
 			sourceTree = "<group>";
 		};
 		2346DCC52577B5B600F80661 /* Src */ = {
@@ -200,8 +210,8 @@
 		2346DCD72577B71B00F80661 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				2346DD3425780CC900F80661 /* PaginationEntity.swift */,
 				2346DD2D257807EE00F80661 /* VacancyEntity.swift */,
+				230644B3257A8DD500C4465A /* VacancyForDayEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -209,6 +219,7 @@
 		2346DCD82577B76000F80661 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				230644AE257A5CB100C4465A /* CustomNavigationController */,
 				2346DCDC2577B86800F80661 /* AppDelegate */,
 				2346DCDD2577B87E00F80661 /* JobsList */,
 				2346DCDE2577B88E00F80661 /* JobsDetail */,
@@ -513,7 +524,7 @@
 				2346DD252577D1C300F80661 /* TableViewUtil.swift in Sources */,
 				2346DCCF2577B6BA00F80661 /* Requests.swift in Sources */,
 				2346DCEF2577C38100F80661 /* JobsDetailPresenter.swift in Sources */,
-				2346DD3525780CC900F80661 /* PaginationEntity.swift in Sources */,
+				230644B4257A8DD500C4465A /* VacancyForDayEntity.swift in Sources */,
 				2346DCD22577B6CC00F80661 /* ApiBaseGateway.swift in Sources */,
 				2346DD2B2577D4F100F80661 /* View+animation.swift in Sources */,
 				2346DCF82577C39D00F80661 /* JobsListPresenter.swift in Sources */,
@@ -523,6 +534,7 @@
 				2346DD282577D1DC00F80661 /* DateFormatterUtil.swift in Sources */,
 				2346DD0E2577CE7D00F80661 /* BaseView.swift in Sources */,
 				2346DCCB2577B6A200F80661 /* ApiEndpoint.swift in Sources */,
+				230644B0257A5CD600C4465A /* CustomNavigationController.swift in Sources */,
 				2346DCF52577C39000F80661 /* JobsDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

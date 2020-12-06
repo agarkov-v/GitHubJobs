@@ -22,57 +22,66 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-pM-Pvm">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="287"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="292"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS developer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r5-tv-bxt">
-                                                <rect key="frame" x="16" y="30" width="382" height="27.5"/>
+                                                <rect key="frame" x="16" y="30" width="146.5" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oggetto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7f-Sn-j1p">
-                                                <rect key="frame" x="16" y="62.5" width="382" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7f-Sn-j1p">
+                                                <rect key="frame" x="16" y="62.5" width="73" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="inactiveGray"/>
+                                                <color key="textColor" name="secondaryGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to apply:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNt-iJ-qXF">
-                                                <rect key="frame" x="16" y="98" width="382" height="24"/>
+                                                <rect key="frame" x="16" y="121" width="120" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="https://howtoapply.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nzz-CA-3Za">
-                                                <rect key="frame" x="16" y="127" width="382" height="34"/>
+                                                <rect key="frame" x="16" y="150" width="170.5" height="34"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Vacancy description Vacancy description Vacancy description Vacancy description Vacancy description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gda-qX-YAg">
-                                                <rect key="frame" x="16" y="205" width="382" height="52"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Vacancy description " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gda-qX-YAg">
+                                                <rect key="frame" x="16" y="228" width="153" height="34"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desctiption:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt6-fL-qrY">
-                                                <rect key="frame" x="16" y="176" width="382" height="24"/>
+                                                <rect key="frame" x="16" y="199" width="105.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10/2020" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akc-Mf-Rgu">
+                                                <rect key="frame" x="16" y="88" width="77" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" name="appBlueColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" name="backgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="9r5-tv-bxt" firstAttribute="top" secondItem="dj1-pM-Pvm" secondAttribute="top" constant="30" id="1k0-om-ROl"/>
-                                            <constraint firstAttribute="trailing" secondItem="nzz-CA-3Za" secondAttribute="trailing" constant="16" id="4JH-EW-SrG"/>
-                                            <constraint firstAttribute="trailing" secondItem="gda-qX-YAg" secondAttribute="trailing" constant="16" id="6Zg-Wz-ZAq"/>
-                                            <constraint firstAttribute="trailing" secondItem="mt6-fL-qrY" secondAttribute="trailing" constant="16" id="DVA-wp-VZd"/>
-                                            <constraint firstAttribute="trailing" secondItem="d7f-Sn-j1p" secondAttribute="trailing" constant="16" id="GAg-XW-kkt"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nzz-CA-3Za" secondAttribute="trailing" constant="16" id="4JH-EW-SrG"/>
+                                            <constraint firstItem="PNt-iJ-qXF" firstAttribute="top" secondItem="Akc-Mf-Rgu" secondAttribute="bottom" constant="15" id="4l7-8e-2iL"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gda-qX-YAg" secondAttribute="trailing" constant="16" id="6Zg-Wz-ZAq"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mt6-fL-qrY" secondAttribute="trailing" constant="16" id="DVA-wp-VZd"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d7f-Sn-j1p" secondAttribute="trailing" constant="16" id="GAg-XW-kkt"/>
                                             <constraint firstItem="nzz-CA-3Za" firstAttribute="leading" secondItem="dj1-pM-Pvm" secondAttribute="leading" constant="16" id="H9j-Si-LEX"/>
-                                            <constraint firstAttribute="trailing" secondItem="PNt-iJ-qXF" secondAttribute="trailing" constant="16" id="JrI-HB-ujw"/>
-                                            <constraint firstAttribute="trailing" secondItem="9r5-tv-bxt" secondAttribute="trailing" constant="16" id="Vay-JT-fI7"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PNt-iJ-qXF" secondAttribute="trailing" constant="16" id="JrI-HB-ujw"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Akc-Mf-Rgu" secondAttribute="trailing" constant="16" id="Mcz-ey-eeD"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9r5-tv-bxt" secondAttribute="trailing" constant="16" id="Vay-JT-fI7"/>
+                                            <constraint firstItem="Akc-Mf-Rgu" firstAttribute="top" secondItem="d7f-Sn-j1p" secondAttribute="bottom" constant="5" id="Wcn-b9-2jn"/>
                                             <constraint firstAttribute="bottom" secondItem="gda-qX-YAg" secondAttribute="bottom" constant="30" id="YVX-pJ-vNb"/>
                                             <constraint firstItem="mt6-fL-qrY" firstAttribute="top" secondItem="nzz-CA-3Za" secondAttribute="bottom" constant="15" id="bh8-NB-4kg"/>
                                             <constraint firstItem="PNt-iJ-qXF" firstAttribute="leading" secondItem="dj1-pM-Pvm" secondAttribute="leading" constant="16" id="ecz-n9-4U5"/>
@@ -81,12 +90,13 @@
                                             <constraint firstItem="nzz-CA-3Za" firstAttribute="top" secondItem="PNt-iJ-qXF" secondAttribute="bottom" constant="5" id="gUf-Ms-BaA"/>
                                             <constraint firstItem="9r5-tv-bxt" firstAttribute="leading" secondItem="dj1-pM-Pvm" secondAttribute="leading" constant="16" id="hAL-0K-18g"/>
                                             <constraint firstItem="mt6-fL-qrY" firstAttribute="leading" secondItem="dj1-pM-Pvm" secondAttribute="leading" constant="16" id="jcL-Ye-Wwr"/>
-                                            <constraint firstItem="PNt-iJ-qXF" firstAttribute="top" secondItem="d7f-Sn-j1p" secondAttribute="bottom" constant="15" id="o11-id-3YL"/>
+                                            <constraint firstItem="Akc-Mf-Rgu" firstAttribute="leading" secondItem="dj1-pM-Pvm" secondAttribute="leading" constant="16" id="kgg-C1-pws"/>
                                             <constraint firstItem="d7f-Sn-j1p" firstAttribute="leading" secondItem="dj1-pM-Pvm" secondAttribute="leading" constant="16" id="rTR-TH-Qid"/>
                                             <constraint firstItem="d7f-Sn-j1p" firstAttribute="top" secondItem="9r5-tv-bxt" secondAttribute="bottom" constant="5" id="ub5-pu-wOx"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="dj1-pM-Pvm" firstAttribute="top" secondItem="EUH-po-s3k" secondAttribute="top" id="Jlp-px-UZd"/>
                                     <constraint firstItem="dj1-pM-Pvm" firstAttribute="leading" secondItem="EUH-po-s3k" secondAttribute="leading" id="XRO-Yl-lNx"/>
@@ -110,6 +120,7 @@
                         <outlet property="applyTextView" destination="nzz-CA-3Za" id="2eD-o4-GOV"/>
                         <outlet property="companyNameLabel" destination="d7f-Sn-j1p" id="jF7-Zx-ebv"/>
                         <outlet property="descriptionTextView" destination="gda-qX-YAg" id="mM6-7M-gcP"/>
+                        <outlet property="vacancyDateLabel" destination="Akc-Mf-Rgu" id="Ioj-bH-ZqP"/>
                         <outlet property="vacancyLabel" destination="9r5-tv-bxt" id="h1V-Lp-BJR"/>
                     </connections>
                 </viewController>
@@ -119,11 +130,14 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="backgroundColor">
-            <color red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="appBlueColor">
+            <color red="0.41176470588235292" green="0.58823529411764708" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="inactiveGray">
-            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.7686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="backgroundColor">
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="secondaryGrayColor">
+            <color red="0.44705882352941179" green="0.44705882352941179" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

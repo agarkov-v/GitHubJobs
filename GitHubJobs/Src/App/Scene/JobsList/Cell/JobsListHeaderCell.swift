@@ -8,7 +8,7 @@
 import UIKit
 
 protocol JobsListHeaderCellView {
-    func setupCell()
+    func setupCell(date: Date)
 }
 
 class JobsListHeaderCell: UITableViewHeaderFooterView {
@@ -17,13 +17,13 @@ class JobsListHeaderCell: UITableViewHeaderFooterView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
 }
 
 extension JobsListHeaderCell: JobsListHeaderCellView {
-    func setupCell() {
-        
+    func setupCell(date: Date) {
+        let dateString = DateFormatUtil.convertDateToString(date: date, format: "dd/MM/yyyy")
+        dateLabel.text = dateString
     }
 }

@@ -19,21 +19,19 @@ protocol VacancyUseCase {
 
 class VacancyUseCaseImp: VacancyUseCase {
     
-    private var currentPage = -1
-    private var countOfPages: Int?
+    private var currentPage = 0
+//    private var countOfPages: Int?
     private var isLoadingInProcess = false
     private var items = [VacancyEntity]()
     
     let gateway: VacancyGateway
     var source = PublishSubject<[VacancyEntity]>()
+    var isLastPage = false
     var hasMorePage: Bool {
         if self.isLoadingInProcess {
             return false
         }
-        guard let countOfPages = self.countOfPages else {
-            return true
-        }
-        return self.currentPage < countOfPages
+        return !isLastPage
     }
     
     init (gateway: VacancyGateway) {
@@ -49,10 +47,13 @@ class VacancyUseCaseImp: VacancyUseCase {
             self.isLoadingInProcess = true
             
             return self.gateway.getVacancy(page: self.currentPage + 1)
-                .do(onSuccess: { (result: PaginationEntity<VacancyEntity>) in
+                .do(onSuccess: { (result: [VacancyEntity]) in
                     self.currentPage += 1
-                    self.countOfPages = result.countOfPages
-                    self.items.append(contentsOf: result.data)
+                    if !result.isEmpty {
+                        self.items.append(contentsOf: result)
+                    } else {
+                        self.isLastPage = true
+                    }
                     self.isLoadingInProcess = false
                     self.source.onNext(self.items)
                 }, onError: { error in
@@ -65,8 +66,7 @@ class VacancyUseCaseImp: VacancyUseCase {
     
     func reset() {
         self.items.removeAll()
-        self.currentPage = -1
-        self.countOfPages = nil
+        self.currentPage = 0
         self.isLoadingInProcess = false
     }
     

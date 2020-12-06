@@ -12,6 +12,9 @@ class JobsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var presenter: JobsListPresenter!
+    private var currentIndexPath: IndexPath?
+    private var lastSection: Int?
+    private var lastRowInSection: Int?
     private var refreshControl: UIRefreshControl {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
@@ -21,10 +24,7 @@ class JobsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         JobsListConfiguratorImp().configure(view: self)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.refreshControl = refreshControl
-        tableView.removeSeparatorsOfEmptyCells()
+        prepareTableView()
         registerNib()
         presenter.viewDidLoad()
     }
@@ -32,6 +32,13 @@ class JobsListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavBar()
+    }
+    
+    func prepareTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.refreshControl = refreshControl
+        tableView.removeSeparatorsOfEmptyCells()
     }
     
     func registerNib() {
@@ -42,7 +49,7 @@ class JobsListViewController: UIViewController {
     }
     
     func configureNavBar() {
-        self.navigationController?.navigationBar.topItem?.title = "Vacancy List"
+        navigationItem.title = "Vacancy List"
     }
     
     @objc private func reloadData() {
@@ -53,45 +60,62 @@ class JobsListViewController: UIViewController {
 
 extension JobsListViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.reuseIdentifier.jobsListHeaderCell)
-//        return view
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.reuseIdentifier.jobsListHeaderCell)!
+        presenter.setupJobsHeaderCell(cell: view, section: section)
+        return view
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        //
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.openDetail(at: indexPath)
+    }
     
 }
 
 extension JobsListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return presenter.vacancyForDayCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.vacancyCount
+        return presenter.vacancyInSectionCount(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.jobsListCell, for: indexPath)!
         
-        if indexPath.row > self.presenter.vacancyCount - 3 {
-            self.presenter.loadData()
+        if indexPath.section == numberOfSections(in: tableView) - 1 {
+            if indexPath.row > presenter.vacancyInSectionCount(indexPath.section) - 2 {
+                presenter.loadData()
+                
+//                let visibles = tableView.indexPathsForVisibleRows!.sorted()
+//                if !visibles.isEmpty {
+//                    self.currentIndexPath = visibles[visibles.count / 2]
+//                }
+                
+                lastSection = numberOfSections(in: tableView) - 1
+                lastRowInSection = tableView.numberOfRows(inSection: lastSection!)
+
+            }
         }
         
-        presenter.setupJobsListCell(cell: cell, index: indexPath.row)
-        return UITableViewCell()
+        
+        presenter.setupJobsListCell(cell: cell, indexPath: indexPath)
+        return cell
     }
 }
 
@@ -115,5 +139,18 @@ extension JobsListViewController: JobsListView {
     
     func clearBackgroundView() {
         tableView.hideEmptyMessage()
+    }
+    
+    func scrollToRow() {
+//        guard let indexPath = currentIndexPath else { return }
+//        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+//        currentIndexPath = nil
+        guard let lastRowInSection = lastRowInSection, let lastSection = lastSection else { return }
+        
+        let lastRowIndexPath = IndexPath(row: lastRowInSection, section: lastSection)
+        tableView.scrollToRow(at: lastRowIndexPath, at: .middle, animated: true)
+        self.lastRowInSection = nil
+        self.lastSection = nil
+
     }
 }
