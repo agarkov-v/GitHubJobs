@@ -18,5 +18,4 @@ class JobsDetailRouterImp: JobsDetailRouter {
     init(_ view: JobsDetailViewController) {
         self.view = view
     }
-    
 }

@@ -12,13 +12,9 @@ protocol JobsListHeaderCellView {
 }
 
 class JobsListHeaderCell: UITableViewHeaderFooterView {
-
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
 }
 
 extension JobsListHeaderCell: JobsListHeaderCellView {

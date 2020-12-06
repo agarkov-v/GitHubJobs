@@ -19,6 +19,7 @@ protocol JobsDetailPresenter {
 
 class JobsDetailPresenterImp: JobsDetailPresenter {
     
+    // MARK: - Types
     private weak var view: JobsDetailView!
     private let router: JobsDetailRouter
     private var vacanyItem: VacancyEntity
@@ -31,6 +32,7 @@ class JobsDetailPresenterImp: JobsDetailPresenter {
         self.vacanyItem = vacanyItem
     }
     
+    // MARK: - Public Methods
     func viewDidLoad() {
         view.setupView(vacanyItem)
     }

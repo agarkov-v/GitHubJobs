@@ -15,18 +15,14 @@ protocol JobsListView: BaseView {
     func showLoaderView()
     func showEmptyMessage(_ stubType: StubType)
     func clearBackgroundView()
-    func scrollToRow()
 }
 
 protocol JobsListPresenter {
     
-//    var vacancyCount: Int { get }
+    var vacancyForDayCount: Int { get }
     func viewDidLoad()
     func reloadData()
     func loadData()
-    func hasMorePage() -> Bool
-    
-    var vacancyForDayCount: Int { get }
     func vacancyInSectionCount(_ sectionIndex: Int) -> Int
     func setupJobsListCell(cell: JobsListCellView, indexPath: IndexPath)
     func setupJobsHeaderCell(cell: JobsListHeaderCellView, section: Int)
@@ -35,42 +31,53 @@ protocol JobsListPresenter {
 
 class JobsListPresenterImp: JobsListPresenter {
     
+    // MARK: - Types
     private weak var view: JobsListView!
-    private let router: JobsListRouter
-    private var disposeBag = DisposeBag()
-//    private var vacancyItems = [VacancyEntity]()
     private let vacancyUseCase: VacancyUseCase
     
-//    var vacancyCount: Int {
-//        vacancyItems.count
-//    }
+    // MARK: - Constants
+    private let router: JobsListRouter
     
-    
-    //----------
+    // MARK: - Private Properties
+    private var disposeBag = DisposeBag()
     private var vacancyForDay = [VacancyForDayEntity]()
     
+    // MARK: - Public Properties
     var vacancyForDayCount: Int {
         vacancyForDay.count
     }
     
-    func vacancyInSectionCount(_ sectionIndex: Int) -> Int {
-        vacancyForDay[sectionIndex].vacancyes.count
+    init(_ view: JobsListView, _ router: JobsListRouter, _ vacancyUseCase: VacancyUseCase) {
+        self.view = view
+        self.router = router
+        self.vacancyUseCase = vacancyUseCase
+        subscribe()
     }
     
-    func formatUTCDate(_ text: String) -> Date {
-        let dateString = text.replacingOccurrences(of: " UTC", with: "")
-        let dateFormatter = DateFormatUtil.convertDateFormatToDate(dateString: dateString, fromFormat: "EEE MMM d HH:mm:ss yyyy", toFotmat: "dd/MM/yyyy")
-        guard let formattedDate = dateFormatter else { return Date() }
-        return formattedDate
+    // MARK: - Private Methods
+    private func subscribe() {
+        _ = vacancyUseCase.source
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (vacancyItems) in
+                guard let self = self else { return }
+                if !self.vacancyForDay.isEmpty {
+                    self.vacancyForDay.removeAll()
+                }
+                self.configurVacancyForDay(vacancy: vacancyItems)
+                self.view.reloadTable()
+            })
+            .disposed(by: disposeBag)
     }
     
-    func configurVacancyforDay(vacancy: [VacancyEntity]) {
+    private func reset() {
+        self.vacancyUseCase.reset()
+        self.view.reloadTable()
+    }
+    
+    private func configurVacancyForDay(vacancy: [VacancyEntity]) {
         var vacancyForDayDict: [Date: [VacancyEntity]] = [Date: [VacancyEntity]]()
-        vacancyForDayDict = Dictionary(grouping: vacancy, by: { self.formatUTCDate($0.createdAt!)})
+        vacancyForDayDict = Dictionary(grouping: vacancy, by: { DateFormatUtil.convertDateFormatToDate( dateString: $0.createdAt, fromFormat: "EEE MMM d HH:mm:ss yyyy", toFotmat: "dd/MM/yyyy") })
         
-//        for (key, value) in vacancyForDayDict {
-//            self.vacancyForDay.append(VacancyForDayEntity(date: key, vacancyes: value))
-//        }
         vacancyForDayDict.forEach { (date, vacancyes) in
             self.vacancyForDay.append(VacancyForDayEntity(date: date, vacancyes: vacancyes))
         }
@@ -78,49 +85,7 @@ class JobsListPresenterImp: JobsListPresenter {
         vacancyForDay.sort(by: { $0.date > $1.date })
     }
     
-    func setupJobsListCell(cell: JobsListCellView, indexPath: IndexPath) {
-        cell.setupCell(vacancy: vacancyForDay[indexPath.section].vacancyes[indexPath.row])
-    }
-    
-    func setupJobsHeaderCell(cell: JobsListHeaderCellView, section: Int) {
-        cell.setupCell(date: vacancyForDay[section].date)
-    }
-    
-    
-    //----------
-    
-    init(_ view: JobsListView,
-         _ router: JobsListRouter,
-         _ vacancyUseCase: VacancyUseCase) {
-        self.view = view
-        self.router = router
-        self.vacancyUseCase = vacancyUseCase
-        subscribe()
-    }
-    
-    private func subscribe() {
-        _ = vacancyUseCase.source
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] (vacancyItems) in
-                guard let self = self else { return }
-//                self.vacancyItems = vacancyItems
-                //добавлять элементы или очищать и опять добавлять
-                if !self.vacancyForDay.isEmpty {
-                    self.vacancyForDay.removeAll()
-                }
-                self.configurVacancyforDay(vacancy: vacancyItems)
-//                self.view.scrollToRow()
-                self.view.reloadTable()
-//                self.view.scrollToRow()
-            })
-    }
-    
-    private func reset() {
-        self.vacancyUseCase.reset()
-        self.disposeBag = DisposeBag()
-        self.view.reloadTable()
-    }
-    
+    // MARK: - Public Methods
     func loadData() {
         if self.vacancyForDay.isEmpty {
             self.view.showLoaderView()
@@ -151,10 +116,6 @@ class JobsListPresenterImp: JobsListPresenter {
         }
     }
     
-    func hasMoreItems() -> Bool {
-        return vacancyUseCase.hasMorePage
-    }
-    
     func viewDidLoad() {
         loadData()
     }
@@ -165,12 +126,19 @@ class JobsListPresenterImp: JobsListPresenter {
         loadData()
     }
     
+    func vacancyInSectionCount(_ sectionIndex: Int) -> Int {
+        vacancyForDay[sectionIndex].vacancyes.count
+    }
+    
+    func setupJobsListCell(cell: JobsListCellView, indexPath: IndexPath) {
+        cell.setupCell(vacancy: vacancyForDay[indexPath.section].vacancyes[indexPath.row])
+    }
+    
+    func setupJobsHeaderCell(cell: JobsListHeaderCellView, section: Int) {
+        cell.setupCell(date: vacancyForDay[section].date)
+    }
+    
     func openDetail(at indexPath: IndexPath) {
         router.openDetail(vacancyItem: vacancyForDay[indexPath.section].vacancyes[indexPath.row])
     }
-    
-    func hasMorePage() -> Bool {
-        vacancyUseCase.hasMorePage
-    }
-
 }

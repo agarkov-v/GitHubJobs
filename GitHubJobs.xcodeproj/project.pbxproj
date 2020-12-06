@@ -34,12 +34,8 @@
 		2346DD1B2577CF4E00F80661 /* StubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2346DD142577CF4E00F80661 /* StubView.xib */; };
 		2346DD1C2577CF4E00F80661 /* StubLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2346DD162577CF4E00F80661 /* StubLoad.xib */; };
 		2346DD1D2577CF4E00F80661 /* StubLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD172577CF4E00F80661 /* StubLoad.swift */; };
-		2346DD1E2577CF4E00F80661 /* StubLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD182577CF4E00F80661 /* StubLoadViewController.swift */; };
-		2346DD1F2577CF4E00F80661 /* StubLoadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2346DD192577CF4E00F80661 /* StubLoadViewController.xib */; };
-		2346DD222577D18000F80661 /* ViewController+alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD212577D18000F80661 /* ViewController+alerts.swift */; };
 		2346DD252577D1C300F80661 /* TableViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD242577D1C300F80661 /* TableViewUtil.swift */; };
 		2346DD282577D1DC00F80661 /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD272577D1DC00F80661 /* DateFormatterUtil.swift */; };
-		2346DD2B2577D4F100F80661 /* View+animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD2A2577D4F100F80661 /* View+animation.swift */; };
 		2346DD2E257807EE00F80661 /* VacancyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD2D257807EE00F80661 /* VacancyEntity.swift */; };
 		2346DD3225780C7100F80661 /* ApiVacancyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD3125780C7100F80661 /* ApiVacancyGateway.swift */; };
 		2346DD3925780D9900F80661 /* VacancyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD3825780D9900F80661 /* VacancyUseCase.swift */; };
@@ -81,12 +77,8 @@
 		2346DD142577CF4E00F80661 /* StubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StubView.xib; sourceTree = "<group>"; };
 		2346DD162577CF4E00F80661 /* StubLoad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StubLoad.xib; sourceTree = "<group>"; };
 		2346DD172577CF4E00F80661 /* StubLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubLoad.swift; sourceTree = "<group>"; };
-		2346DD182577CF4E00F80661 /* StubLoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubLoadViewController.swift; sourceTree = "<group>"; };
-		2346DD192577CF4E00F80661 /* StubLoadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StubLoadViewController.xib; sourceTree = "<group>"; };
-		2346DD212577D18000F80661 /* ViewController+alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+alerts.swift"; sourceTree = "<group>"; };
 		2346DD242577D1C300F80661 /* TableViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewUtil.swift; sourceTree = "<group>"; };
 		2346DD272577D1DC00F80661 /* DateFormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtil.swift; sourceTree = "<group>"; };
-		2346DD2A2577D4F100F80661 /* View+animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+animation.swift"; sourceTree = "<group>"; };
 		2346DD2D257807EE00F80661 /* VacancyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyEntity.swift; sourceTree = "<group>"; };
 		2346DD3125780C7100F80661 /* ApiVacancyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiVacancyGateway.swift; sourceTree = "<group>"; };
 		2346DD3825780D9900F80661 /* VacancyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyUseCase.swift; sourceTree = "<group>"; };
@@ -233,8 +225,6 @@
 				2346DCDA2577B7CD00F80661 /* Base */,
 				2346DCDB2577B85F00F80661 /* View */,
 				2346DD102577CEEC00F80661 /* NavigationControllerUtil.swift */,
-				2346DD2A2577D4F100F80661 /* View+animation.swift */,
-				2346DD212577D18000F80661 /* ViewController+alerts.swift */,
 				2346DD242577D1C300F80661 /* TableViewUtil.swift */,
 				2346DD272577D1DC00F80661 /* DateFormatterUtil.swift */,
 			);
@@ -310,8 +300,6 @@
 			children = (
 				2346DD162577CF4E00F80661 /* StubLoad.xib */,
 				2346DD172577CF4E00F80661 /* StubLoad.swift */,
-				2346DD182577CF4E00F80661 /* StubLoadViewController.swift */,
-				2346DD192577CF4E00F80661 /* StubLoadViewController.xib */,
 			);
 			path = LoadView;
 			sourceTree = "<group>";
@@ -375,6 +363,7 @@
 				237A8BD42577ADF60026898B /* Frameworks */,
 				237A8BD52577ADF60026898B /* Resources */,
 				1E0F406BF05036924A0F0F6B /* [CP] Embed Pods Frameworks */,
+				230644BB257D0EE300C4465A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -426,7 +415,6 @@
 				237A8BE72577ADF90026898B /* LaunchScreen.storyboard in Resources */,
 				2346DD032577C3E500F80661 /* JobsListCell.xib in Resources */,
 				2346DD1C2577CF4E00F80661 /* StubLoad.xib in Resources */,
-				2346DD1F2577CF4E00F80661 /* StubLoadViewController.xib in Resources */,
 				2346DD082577C3FC00F80661 /* JobsListHeaderCell.xib in Resources */,
 				2346DCE22577C1FF00F80661 /* JobsDetail.storyboard in Resources */,
 				237A8BE42577ADF90026898B /* Assets.xcassets in Resources */,
@@ -453,6 +441,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GitHubJobs/Pods-GitHubJobs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		230644BB257D0EE300C4465A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, install it by 'brew install swiftlint'. More: https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
 		};
 		2346DC9B2577B0DD00F80661 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -505,7 +510,6 @@
 				2346DCFB2577C3A500F80661 /* JobsListConfigurator.swift in Sources */,
 				2346DD0B2577CE5500F80661 /* BaseRouter.swift in Sources */,
 				237A8BDB2577ADF60026898B /* AppDelegate.swift in Sources */,
-				2346DD222577D18000F80661 /* ViewController+alerts.swift in Sources */,
 				2346DD58257814B800F80661 /* ExtendedLoggingInterceptor.swift in Sources */,
 				2346DD112577CEEC00F80661 /* NavigationControllerUtil.swift in Sources */,
 				2346DD3925780D9900F80661 /* VacancyUseCase.swift in Sources */,
@@ -526,10 +530,8 @@
 				2346DCEF2577C38100F80661 /* JobsDetailPresenter.swift in Sources */,
 				230644B4257A8DD500C4465A /* VacancyForDayEntity.swift in Sources */,
 				2346DCD22577B6CC00F80661 /* ApiBaseGateway.swift in Sources */,
-				2346DD2B2577D4F100F80661 /* View+animation.swift in Sources */,
 				2346DCF82577C39D00F80661 /* JobsListPresenter.swift in Sources */,
 				2346DCF22577C38900F80661 /* JobsDetailConfigurator.swift in Sources */,
-				2346DD1E2577CF4E00F80661 /* StubLoadViewController.swift in Sources */,
 				2346DD5C2578156300F80661 /* ErrorResponseHandler.swift in Sources */,
 				2346DD282577D1DC00F80661 /* DateFormatterUtil.swift in Sources */,
 				2346DD0E2577CE7D00F80661 /* BaseView.swift in Sources */,

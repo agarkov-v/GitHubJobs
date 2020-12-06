@@ -7,22 +7,22 @@
 
 import Foundation
 
-struct VacancyEntity: Codable, Hashable {
-    var id: String?
-    var createdAt: String?
-    var company: String?
-    var companyUrl: String?
-    var title: String?
-    var description: String?
-    var howToApply: String?
+struct VacancyEntity: Codable {
+    var id: String
+    var createdAt: String
+    var company: String
+    //    var companyUrl: String
+    var title: String
+    var description: String
+    var howToApply: String
     
-        enum CodingKeys: String, CodingKey {
-            case id = "id"
-            case createdAt = "created_at"
-            case company = "company"
-            case companyUrl = "company_url"
-            case title = "title"
-            case description = "description"
-            case howToApply = "how_to_apply"
-        }
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case createdAt = "created_at"
+        case company = "company"
+        //            case companyUrl = "company_url"
+        case title = "title"
+        case description = "description"
+        case howToApply = "how_to_apply"
+    }
 }

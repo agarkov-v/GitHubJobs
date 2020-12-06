@@ -8,18 +8,15 @@
 import UIKit
 
 class JobsListViewController: UIViewController {
-
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
-
+    
+    // MARK: - Private Properties
+    lazy private var refreshControl = UIRefreshControl()
+    
+    // MARK: - Public Properties
     var presenter: JobsListPresenter!
-    private var currentIndexPath: IndexPath?
-    private var lastSection: Int?
-    private var lastRowInSection: Int?
-    private var refreshControl: UIRefreshControl {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-        return refreshControl
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +24,8 @@ class JobsListViewController: UIViewController {
         prepareTableView()
         registerNib()
         presenter.viewDidLoad()
+        
+        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +37,6 @@ class JobsListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControl
-        tableView.removeSeparatorsOfEmptyCells()
     }
     
     func registerNib() {
@@ -55,7 +53,7 @@ class JobsListViewController: UIViewController {
     @objc private func reloadData() {
         presenter.reloadData()
     }
-
+    
 }
 
 extension JobsListViewController: UITableViewDelegate {
@@ -66,21 +64,9 @@ extension JobsListViewController: UITableViewDelegate {
         return view
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.openDetail(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
 }
@@ -101,18 +87,8 @@ extension JobsListViewController: UITableViewDataSource {
         if indexPath.section == numberOfSections(in: tableView) - 1 {
             if indexPath.row > presenter.vacancyInSectionCount(indexPath.section) - 2 {
                 presenter.loadData()
-                
-//                let visibles = tableView.indexPathsForVisibleRows!.sorted()
-//                if !visibles.isEmpty {
-//                    self.currentIndexPath = visibles[visibles.count / 2]
-//                }
-                
-                lastSection = numberOfSections(in: tableView) - 1
-                lastRowInSection = tableView.numberOfRows(inSection: lastSection!)
-
             }
         }
-        
         
         presenter.setupJobsListCell(cell: cell, indexPath: indexPath)
         return cell
@@ -139,18 +115,5 @@ extension JobsListViewController: JobsListView {
     
     func clearBackgroundView() {
         tableView.hideEmptyMessage()
-    }
-    
-    func scrollToRow() {
-//        guard let indexPath = currentIndexPath else { return }
-//        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-//        currentIndexPath = nil
-        guard let lastRowInSection = lastRowInSection, let lastSection = lastSection else { return }
-        
-        let lastRowIndexPath = IndexPath(row: lastRowInSection, section: lastSection)
-        tableView.scrollToRow(at: lastRowIndexPath, at: .middle, animated: true)
-        self.lastRowInSection = nil
-        self.lastSection = nil
-
     }
 }

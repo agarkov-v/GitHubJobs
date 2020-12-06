@@ -24,5 +24,4 @@ class StubLoad: UIView {
     func show() {
         activityIndicator.startAnimating()
     }
-    
 }

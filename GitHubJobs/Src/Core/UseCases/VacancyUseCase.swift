@@ -20,7 +20,6 @@ protocol VacancyUseCase {
 class VacancyUseCaseImp: VacancyUseCase {
     
     private var currentPage = 0
-//    private var countOfPages: Int?
     private var isLoadingInProcess = false
     private var items = [VacancyEntity]()
     
@@ -68,7 +67,6 @@ class VacancyUseCaseImp: VacancyUseCase {
         self.items.removeAll()
         self.currentPage = 0
         self.isLoadingInProcess = false
-    }
-    
-    
+        self.isLastPage = false
+    }  
 }

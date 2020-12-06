@@ -14,7 +14,7 @@ class DateFormatUtil {
         formatter.dateFormat = "dd MMM. yyyy, HH:mm"
         return formatter
     }()
-     
+    
     private static let hardDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
@@ -44,52 +44,45 @@ class DateFormatUtil {
         } else { return nil }
     }
     
-    static func convertDateFormatToString(dateString: String, fromFormat: String, toFotmat: String) -> String? {
+    static func convertDateFormatToString(dateString: String, fromFormat: String, toFotmat: String) -> String {
+        let dateWithoutUTC = dateString.replacingOccurrences(of: " UTC", with: "")
         let fromDateFormat = DateFormatter()
         fromDateFormat.dateFormat = fromFormat
         fromDateFormat.timeZone = TimeZone(abbreviation: "UTC")
-
+        
         let toDateFormat = DateFormatter()
         toDateFormat.dateFormat = toFotmat
         toDateFormat.timeZone = TimeZone(abbreviation: "UTC")
-
-        if let date = fromDateFormat.date(from: dateString) {
-//            debugPrint("convertDateFormat success: \(toDateFormat.string(from: date))")
+        
+        if let date = fromDateFormat.date(from: dateWithoutUTC) {
             return toDateFormat.string(from: date)
         } else {
             debugPrint("convertDateFormat: there was an error decoding the string")
-            return nil
+            return ""
         }
     }
     
-    static func convertDateFormatToDate(dateString: String, fromFormat: String, toFotmat: String) -> Date? {
+    static func convertDateFormatToDate(dateString: String, fromFormat: String, toFotmat: String) -> Date {
+        let dateWithoutUTC = dateString.replacingOccurrences(of: " UTC", with: "")
         let fromDateFormat = DateFormatter()
         fromDateFormat.dateFormat = fromFormat
         fromDateFormat.timeZone = TimeZone(abbreviation: "UTC")
-
+        
         let toDateFormat = DateFormatter()
         toDateFormat.dateFormat = toFotmat
         toDateFormat.timeZone = TimeZone(abbreviation: "UTC")
-
-        if let date = fromDateFormat.date(from: dateString) {
-//            debugPrint("convertDateFormat success: \(toDateFormat.string(from: date))")
+        
+        if let date = fromDateFormat.date(from: dateWithoutUTC) {
             let formattedString = toDateFormat.string(from: date)
-            return toDateFormat.date(from: formattedString)
+            return toDateFormat.date(from: formattedString)!
         } else {
             debugPrint("convertDateFormat: there was an error decoding the string")
-            return nil
+            return Date()
         }
     }
     
-    static func convertToDate(dateString: String, format: String) -> Date {
-        customFormatter.dateFormat = format
-//        customFormatter.timeZone = TimeZone.current
-        customFormatter.dateStyle = .short
-        guard let date = (customFormatter.date(from: dateString)) else { return Date() }
-        return date
-    }
-    
     static func convertDateToString(date: Date, format: String) -> String {
+        
         customFormatter.dateFormat = format
         let dateString = customFormatter.string(from: date)
         return dateString
