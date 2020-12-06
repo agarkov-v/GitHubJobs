@@ -31,14 +31,10 @@ protocol JobsListPresenter {
 
 class JobsListPresenterImp: JobsListPresenter {
     
-    // MARK: - Types
-    private weak var view: JobsListView!
-    private let vacancyUseCase: VacancyUseCase
-    
-    // MARK: - Constants
-    private let router: JobsListRouter
-    
     // MARK: - Private Properties
+    private weak var view: JobsListView!
+    private let router: JobsListRouter
+    private let vacancyUseCase: VacancyUseCase
     private var disposeBag = DisposeBag()
     private var vacancyForDay = [VacancyForDayEntity]()
     

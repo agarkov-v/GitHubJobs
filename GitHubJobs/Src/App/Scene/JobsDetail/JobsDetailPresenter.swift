@@ -19,7 +19,7 @@ protocol JobsDetailPresenter {
 
 class JobsDetailPresenterImp: JobsDetailPresenter {
     
-    // MARK: - Types
+    // MARK: - Private Properties
     private weak var view: JobsDetailView!
     private let router: JobsDetailRouter
     private var vacanyItem: VacancyEntity
