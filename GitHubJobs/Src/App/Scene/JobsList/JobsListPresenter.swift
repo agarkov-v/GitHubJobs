@@ -37,16 +37,18 @@ class JobsListPresenterImp: JobsListPresenter {
     private let vacancyUseCase: VacancyUseCase
     private var disposeBag = DisposeBag()
     private var vacancyForDay = [VacancyForDayEntity]()
+    private let dateFormatterUtil: DateFormatterUtil
     
     // MARK: - Public Properties
     var vacancyForDayCount: Int {
         vacancyForDay.count
     }
     
-    init(_ view: JobsListView, _ router: JobsListRouter, _ vacancyUseCase: VacancyUseCase) {
+    init(_ view: JobsListView, _ router: JobsListRouter, _ vacancyUseCase: VacancyUseCase, _ dateFormatterUtil: DateFormatterUtil) {
         self.view = view
         self.router = router
         self.vacancyUseCase = vacancyUseCase
+        self.dateFormatterUtil = dateFormatterUtil
         subscribe()
     }
     
@@ -72,7 +74,7 @@ class JobsListPresenterImp: JobsListPresenter {
     
     private func configurVacancyForDay(vacancy: [VacancyEntity]) {
         var vacancyForDayDict: [Date: [VacancyEntity]] = [Date: [VacancyEntity]]()
-        vacancyForDayDict = Dictionary(grouping: vacancy, by: { DateFormatUtil.convertDateFormatToDate( dateString: $0.createdAt, fromFormat: "EEE MMM d HH:mm:ss yyyy", toFotmat: "dd/MM/yyyy") })
+        vacancyForDayDict = Dictionary(grouping: vacancy, by: { dateFormatterUtil.convertDateFormatToDate( dateString: $0.createdAt, fromFormat: "EEE MMM d HH:mm:ss yyyy", toFotmat: "dd/MM/yyyy") })
         
         vacancyForDayDict.forEach { (date, vacancyes) in
             self.vacancyForDay.append(VacancyForDayEntity(date: date, vacancyes: vacancyes))
@@ -125,13 +127,13 @@ class JobsListPresenterImp: JobsListPresenter {
     func vacancyInSectionCount(_ sectionIndex: Int) -> Int {
         vacancyForDay[sectionIndex].vacancyes.count
     }
-    
+
     func setupJobsListCell(cell: JobsListCellView, indexPath: IndexPath) {
         cell.setupCell(vacancy: vacancyForDay[indexPath.section].vacancyes[indexPath.row])
     }
     
     func setupJobsHeaderCell(cell: JobsListHeaderCellView, section: Int) {
-        cell.setupCell(date: vacancyForDay[section].date)
+        cell.setupCell(date: vacancyForDay[section].date, dateFormatterUtil: dateFormatterUtil)
     }
     
     func openDetail(at indexPath: IndexPath) {

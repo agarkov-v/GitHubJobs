@@ -24,22 +24,15 @@ class DI {
             .as(ErrorResponseHandler.self)
             .lifetime(.single)
         
-       // MARK: ApiClient
+        // MARK: ApiClient
         ApiEndpoint.baseEndpoint = ApiEndpoint.base
         self.container.register { () -> ApiClientImp in
             let client = ApiClientImp.defaultInstance(host: ApiEndpoint.base.host)
-//            client.interceptors.removeAll()
             client.responseHandlersQueue.append(ErrorResponseHandler())
             client.interceptors.append(ExtendedLoggingInterceptor())
             return client
         }
         .as(ApiClient.self)
-//        .injection(cycle: true) {
-//            $0.interceptors.insert($1 as ExtendedLoggingInterceptor, at: 0)
-//        }
-//        .injection(cycle: true) {
-//            $0.responseHandlersQueue.insert($1 as ErrorResponseHandler, at: 0)
-//        }
         .lifetime(.single)
         
         // MARK: - Gateways
@@ -50,7 +43,11 @@ class DI {
         // MARK: - UseCases
         self.container.register(VacancyUseCaseImp.init)
             .as(VacancyUseCase.self)
-    
+        
+        // MARK: - Util
+        self.container.register(DateFormatUtilImp.init)
+            .as(DateFormatterUtil.self)
+
     }
     
     static func resolve<T>() -> T {

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol JobsListHeaderCellView {
-    func setupCell(date: Date)
+    func setupCell(date: Date, dateFormatterUtil: DateFormatterUtil)
 }
 
 class JobsListHeaderCell: UITableViewHeaderFooterView {
@@ -18,8 +18,8 @@ class JobsListHeaderCell: UITableViewHeaderFooterView {
 }
 
 extension JobsListHeaderCell: JobsListHeaderCellView {
-    func setupCell(date: Date) {
-        let dateString = DateFormatUtil.convertDateToString(date: date, format: "dd/MM/yyyy")
+    func setupCell(date: Date, dateFormatterUtil: DateFormatterUtil) {
+        let dateString = dateFormatterUtil.convertDateToString(date: date, format: "dd/MM/yyyy")
         dateLabel.text = dateString
     }
 }

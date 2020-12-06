@@ -7,44 +7,18 @@
 
 import Foundation
 
-class DateFormatUtil {
+protocol DateFormatterUtil {
     
-    private static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM. yyyy, HH:mm"
-        return formatter
-    }()
+    func convertDateFormatToString(dateString: String, fromFormat: String, toFotmat: String) -> String
+    func convertDateFormatToDate(dateString: String, fromFormat: String, toFotmat: String) -> Date
+    func convertDateToString(date: Date, format: String) -> String
+}
+
+class DateFormatUtilImp: DateFormatterUtil {
     
-    private static let hardDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        return formatter
-    }()
+    private let customFormatter: DateFormatter = DateFormatter()
     
-    private static let customFormatter: DateFormatter = DateFormatter()
-    
-    static func customDateFormat(time: TimeInterval, format: String) -> String {
-        customFormatter.dateFormat = format
-        return customFormatter.string(from: Date(timeIntervalSince1970: time))
-    }
-    
-    static func customDateFormat(dateString: String, format: String) -> String? {
-        if let date = hardDateFormatter.date(from: dateString) {
-            return customDateFormat(time: date.timeIntervalSince1970, format: format)
-        } else { return nil }
-    }
-    
-    static func simpleDateFormat(time: TimeInterval) -> String {
-        return dateFormatter.string(from: Date(timeIntervalSince1970: time))
-    }
-    
-    static func simpleDateFormat(dateString: String) -> String? {
-        if let date = hardDateFormatter.date(from: dateString) {
-            return simpleDateFormat(time: date.timeIntervalSince1970)
-        } else { return nil }
-    }
-    
-    static func convertDateFormatToString(dateString: String, fromFormat: String, toFotmat: String) -> String {
+    func convertDateFormatToString(dateString: String, fromFormat: String, toFotmat: String) -> String {
         let dateWithoutUTC = dateString.replacingOccurrences(of: " UTC", with: "")
         let fromDateFormat = DateFormatter()
         fromDateFormat.dateFormat = fromFormat
@@ -62,7 +36,7 @@ class DateFormatUtil {
         }
     }
     
-    static func convertDateFormatToDate(dateString: String, fromFormat: String, toFotmat: String) -> Date {
+    func convertDateFormatToDate(dateString: String, fromFormat: String, toFotmat: String) -> Date {
         let dateWithoutUTC = dateString.replacingOccurrences(of: " UTC", with: "")
         let fromDateFormat = DateFormatter()
         fromDateFormat.dateFormat = fromFormat
@@ -81,8 +55,7 @@ class DateFormatUtil {
         }
     }
     
-    static func convertDateToString(date: Date, format: String) -> String {
-        
+    func convertDateToString(date: Date, format: String) -> String {
         customFormatter.dateFormat = format
         let dateString = customFormatter.string(from: date)
         return dateString

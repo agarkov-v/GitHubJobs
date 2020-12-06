@@ -16,8 +16,9 @@ class JobsDetailViewController: UIViewController {
     @IBOutlet weak var applyTextView: UITextView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    // MARK: - Private Properties
+    // MARK: - Public Properties
     var presenter: JobsDetailPresenter!
+    var dateFormatterUtil: DateFormatterUtil!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ extension JobsDetailViewController: JobsDetailView {
         vacancyLabel.text = vacancy.title
         companyNameLabel.text = vacancy.company
         
-        let dateFormatter = DateFormatUtil.convertDateFormatToString(dateString: vacancy.createdAt, fromFormat: "EEE MMM d HH:mm:ss yyyy", toFotmat: "dd/MM/yyyy")
+        let dateFormatter = dateFormatterUtil.convertDateFormatToString(dateString: vacancy.createdAt, fromFormat: "EEE MMM d HH:mm:ss yyyy", toFotmat: "dd/MM/yyyy")
         vacancyDateLabel.text = dateFormatter
         
         applyTextView.text = vacancy.howToApply

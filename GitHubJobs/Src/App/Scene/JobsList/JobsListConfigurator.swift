@@ -12,7 +12,7 @@ class JobsListConfiguratorImp {
     
     func configure(view: JobsListViewController) {
         let router = JobsListRouterImp(view)
-        let presenter = JobsListPresenterImp(view, router, DI.resolve())
+        let presenter = JobsListPresenterImp(view, router, DI.resolve(), DI.resolve())
         view.presenter = presenter
     }
     

@@ -13,6 +13,7 @@ class JobsDetailConfiguratorImp {
         let router = JobsDetailRouterImp(view)
         let presenter = JobsDetailPresenterImp(view, router, vacancyItem)
         view.presenter = presenter
+        view.dateFormatterUtil = DI.resolve()
     }
     
     static func open(navigationController: UINavigationController, vacancyItem: VacancyEntity) {
