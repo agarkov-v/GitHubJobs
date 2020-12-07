@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class JobsListViewController: UIViewController {
     
@@ -14,6 +15,7 @@ class JobsListViewController: UIViewController {
     
     // MARK: - Private Properties
     lazy private var refreshControl = UIRefreshControl()
+    private let disposeBag = DisposeBag()
     
     // MARK: - Public Properties
     var presenter: JobsListPresenter!
@@ -23,14 +25,23 @@ class JobsListViewController: UIViewController {
         JobsListConfiguratorImp().configure(view: self)
         prepareTableView()
         registerNib()
+        shouldReload()
         presenter.viewDidLoad()
-        
         refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavBar()
+    }
+
+    private func shouldReload() {
+        presenter.shouldReloadData
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [tableView] in
+                tableView?.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
     
     func prepareTableView() {
@@ -84,7 +95,7 @@ extension JobsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.jobsListCell, for: indexPath)!
         
-        if indexPath.section == numberOfSections(in: tableView) - 1 {
+        if indexPath.section == numberOfSections(in: tableView) - 1, presenter.hasMorePage() {
             if indexPath.row > presenter.vacancyInSectionCount(indexPath.section) - 2 {
                 presenter.loadData()
             }

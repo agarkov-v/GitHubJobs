@@ -20,13 +20,15 @@ protocol JobsListView: BaseView {
 protocol JobsListPresenter {
     
     var vacancyForDayCount: Int { get }
+    var shouldReloadData: PublishSubject<Void> { get }
     func viewDidLoad()
     func reloadData()
-    func loadData()
     func vacancyInSectionCount(_ sectionIndex: Int) -> Int
     func setupJobsListCell(cell: JobsListCellView, indexPath: IndexPath)
     func setupJobsHeaderCell(cell: JobsListHeaderCellView, section: Int)
     func openDetail(at indexPath: IndexPath)
+    func loadData()
+    func hasMorePage() -> Bool
 }
 
 class JobsListPresenterImp: JobsListPresenter {
@@ -34,44 +36,28 @@ class JobsListPresenterImp: JobsListPresenter {
     // MARK: - Private Properties
     private weak var view: JobsListView!
     private let router: JobsListRouter
-    private let vacancyUseCase: VacancyUseCase
+    private let vacancyInteractor: VacancyInteractor
     private var disposeBag = DisposeBag()
     private var vacancyForDay = [VacancyForDayEntity]()
     private let dateFormatterUtil: DateFormatterUtil
-    
+    private var state: VacancyState = .empty
+
     // MARK: - Public Properties
+    let shouldReloadData = PublishSubject<Void>()
     var vacancyForDayCount: Int {
         vacancyForDay.count
     }
     
-    init(_ view: JobsListView, _ router: JobsListRouter, _ vacancyUseCase: VacancyUseCase, _ dateFormatterUtil: DateFormatterUtil) {
+    init(_ view: JobsListView, _ router: JobsListRouter, _ dateFormatterUtil: DateFormatterUtil, _ vacancyInteractor: VacancyInteractor) {
         self.view = view
         self.router = router
-        self.vacancyUseCase = vacancyUseCase
         self.dateFormatterUtil = dateFormatterUtil
-        subscribe()
+        self.vacancyInteractor = vacancyInteractor
+        stateSubscription()
+        vacancySubscription()
     }
     
     // MARK: - Private Methods
-    private func subscribe() {
-        _ = vacancyUseCase.source
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] (vacancyItems) in
-                guard let self = self else { return }
-                if !self.vacancyForDay.isEmpty {
-                    self.vacancyForDay.removeAll()
-                }
-                self.configurVacancyForDay(vacancy: vacancyItems)
-                self.view.reloadTable()
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    private func reset() {
-        self.vacancyUseCase.reset()
-        self.view.reloadTable()
-    }
-    
     private func configurVacancyForDay(vacancy: [VacancyEntity]) {
         var vacancyForDayDict: [Date: [VacancyEntity]] = [Date: [VacancyEntity]]()
         vacancyForDayDict = Dictionary(grouping: vacancy, by: { dateFormatterUtil.convertDateFormatToDate( dateString: $0.createdAt, fromFormat: "EEE MMM d HH:mm:ss yyyy", toFotmat: "dd/MM/yyyy") })
@@ -82,46 +68,78 @@ class JobsListPresenterImp: JobsListPresenter {
         
         vacancyForDay.sort(by: { $0.date > $1.date })
     }
-    
-    // MARK: - Public Methods
-    func loadData() {
-        if self.vacancyForDay.isEmpty {
-            self.view.showLoaderView()
-        }
-        if self.vacancyUseCase.hasMorePage {
-            self.vacancyUseCase.loadNewData()
-                .observeOn(MainScheduler.instance)
-                .subscribe(onCompleted: { [weak self] in
-                    guard let self = self else { return }
-                    self.view.endRefreshing()
-                    if self.vacancyForDay.isEmpty {
-                        self.view.showEmptyMessage(.noData)
-                    } else {
-                        self.view.clearBackgroundView()
-                    }
-                }, onError: { [weak self] error in
-                    guard let self = self else { return }
-                    if error.localizedDescription.contains("operation couldn’t be completed") {
-                        self.view.showErrorDialog(message: "Network error")
-                        self.view.showEmptyMessage(.networkError)
-                    } else {
-                        self.view.showErrorDialog(message: error.localizedDescription)
-                        self.view.showEmptyMessage(.somethingWrong)
-                    }
-                    self.view.endRefreshing()
-                })
-                .disposed(by: disposeBag)
-        }
+
+    private func vacancySubscription() {
+        _ = vacancyInteractor.vacansyItems
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (vacancyItems) in
+                guard let self = self else { return }
+                if !self.vacancyForDay.isEmpty {
+                    self.vacancyForDay.removeAll()
+                }
+                self.configurVacancyForDay(vacancy: vacancyItems)
+                if self.vacancyForDay.isEmpty {
+                    self.view.showEmptyMessage(.noData)
+                }
+            })
+            .disposed(by: disposeBag)
     }
+
+    private func stateSubscription() {
+        vacancyInteractor.didChangeState.subscribe(onNext: { [weak self] vacancyState in
+            guard let self = self else { return }
+
+            switch vacancyState {
+            case .empty:
+                self.state = .empty
+            case .loadingData:
+                self.state = .loadingData
+            case .loadedSomeData:
+                self.state = .loadedSomeData
+            case .error:
+                self.state = .error
+            }
+            self.shouldReloadData.onNext(())
+        }).disposed(by: disposeBag)
+    }
+
+    // MARK: - Public Methods
     
     func viewDidLoad() {
         loadData()
     }
+
+    func loadData() {
+        if vacancyForDay.isEmpty {
+            self.view.showLoaderView()
+        }
+        if vacancyInteractor.hasMorePage {
+            vacancyInteractor.loadPage()
+            view.endRefreshing()
+            switch state {
+            case .empty:
+                if let error = vacancyInteractor.error {
+                    view.showErrorDialog(message: error.localizedDescription)
+                    view.showEmptyMessage(.somethingWrong)
+                } else {
+                    view.showLoaderView()
+                }
+            case .error:
+                guard let error = vacancyInteractor.error else { return }
+                view.showErrorDialog(message: error.localizedDescription)
+                view.showEmptyMessage(.somethingWrong)
+            default:
+                return
+            }
+        }
+    }
     
     func reloadData() {
         vacancyForDay.removeAll()
-        reset()
+        vacancyInteractor.reset()
         loadData()
+        view.reloadTable()
+        view.endRefreshing()
     }
     
     func vacancyInSectionCount(_ sectionIndex: Int) -> Int {
@@ -138,5 +156,9 @@ class JobsListPresenterImp: JobsListPresenter {
     
     func openDetail(at indexPath: IndexPath) {
         router.openDetail(vacancyItem: vacancyForDay[indexPath.section].vacancyes[indexPath.row])
+    }
+
+    func hasMorePage() -> Bool {
+        vacancyInteractor.hasMorePage
     }
 }

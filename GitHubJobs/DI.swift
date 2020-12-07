@@ -48,6 +48,17 @@ class DI {
         self.container.register(DateFormatUtilImp.init)
             .as(DateFormatterUtil.self)
 
+
+
+        self.container.register(APIClientImp.init)
+            .as(APIClient.self)
+
+        self.container.register(VacancyApiServiceImp.init)
+            .as(VacancyApiService.self)
+
+        self.container.register(VacancyInteractorImp.init)
+            .as(VacancyInteractor.self)
+
     }
     
     static func resolve<T>() -> T {

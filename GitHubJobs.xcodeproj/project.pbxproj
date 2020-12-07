@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		230644B0257A5CD600C4465A /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644AF257A5CD600C4465A /* CustomNavigationController.swift */; };
 		230644B4257A8DD500C4465A /* VacancyForDayEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644B3257A8DD500C4465A /* VacancyForDayEntity.swift */; };
+		230644C3257D3C4200C4465A /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644C2257D3C4200C4465A /* EndPoint.swift */; };
+		230644C7257D3C6200C4465A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644C6257D3C6100C4465A /* ApiClient.swift */; };
+		230644CB257D3CE300C4465A /* VacancyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644CA257D3CE300C4465A /* VacancyEndpoint.swift */; };
+		230644CE257D55D900C4465A /* VacancyApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644CD257D55D900C4465A /* VacancyApiService.swift */; };
+		230644DE257D58A300C4465A /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644DD257D58A300C4465A /* ServiceLayer.swift */; };
+		2336DD28257D6C600068ECFD /* VacancyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336DD27257D6C600068ECFD /* VacancyInteractor.swift */; };
+		2336DD2E257D74670068ECFD /* ApiPageEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336DD2D257D74670068ECFD /* ApiPageEntitiy.swift */; };
 		2346DCA42577B40D00F80661 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCA32577B40D00F80661 /* R.generated.swift */; };
 		2346DCC32577B56B00F80661 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCC22577B56B00F80661 /* DI.swift */; };
 		2346DCCB2577B6A200F80661 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCCA2577B6A200F80661 /* ApiEndpoint.swift */; };
@@ -52,6 +59,13 @@
 /* Begin PBXFileReference section */
 		230644AF257A5CD600C4465A /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		230644B3257A8DD500C4465A /* VacancyForDayEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyForDayEntity.swift; sourceTree = "<group>"; };
+		230644C2257D3C4200C4465A /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		230644C6257D3C6100C4465A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		230644CA257D3CE300C4465A /* VacancyEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyEndpoint.swift; sourceTree = "<group>"; };
+		230644CD257D55D900C4465A /* VacancyApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyApiService.swift; sourceTree = "<group>"; };
+		230644DD257D58A300C4465A /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		2336DD27257D6C600068ECFD /* VacancyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyInteractor.swift; sourceTree = "<group>"; };
+		2336DD2D257D74670068ECFD /* ApiPageEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPageEntitiy.swift; sourceTree = "<group>"; };
 		2346DCA32577B40D00F80661 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		2346DCC22577B56B00F80661 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		2346DCCA2577B6A200F80661 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
@@ -124,9 +138,46 @@
 			path = CustomNavigationController;
 			sourceTree = "<group>";
 		};
+		230644BF257D3AA300C4465A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				230644C0257D3AB300C4465A /* Networking */,
+				230644C9257D3C9900C4465A /* Endpoints */,
+				230644CD257D55D900C4465A /* VacancyApiService.swift */,
+				230644DD257D58A300C4465A /* ServiceLayer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		230644C0257D3AB300C4465A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				230644C1257D3C3900C4465A /* Common */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		230644C1257D3C3900C4465A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				230644C2257D3C4200C4465A /* EndPoint.swift */,
+				230644C6257D3C6100C4465A /* ApiClient.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		230644C9257D3C9900C4465A /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				230644CA257D3CE300C4465A /* VacancyEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		2346DCC52577B5B600F80661 /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				230644BF257D3AA300C4465A /* Services */,
 				2346DCC72577B66700F80661 /* Core */,
 				2346DCC82577B66C00F80661 /* App */,
 			);
@@ -204,6 +255,7 @@
 			children = (
 				2346DD2D257807EE00F80661 /* VacancyEntity.swift */,
 				230644B3257A8DD500C4465A /* VacancyForDayEntity.swift */,
+				2336DD2D257D74670068ECFD /* ApiPageEntitiy.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -265,6 +317,7 @@
 				237A8BE02577ADF60026898B /* JobsList.storyboard */,
 				2346DCE52577C2C500F80661 /* JobsListViewController.swift */,
 				2346DCF72577C39D00F80661 /* JobsListPresenter.swift */,
+				2336DD27257D6C600068ECFD /* VacancyInteractor.swift */,
 				2346DCFA2577C3A500F80661 /* JobsListConfigurator.swift */,
 				2346DCFD2577C3AD00F80661 /* JobsListRouter.swift */,
 				2346DCE92577C32A00F80661 /* Cell */,
@@ -507,17 +560,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230644CB257D3CE300C4465A /* VacancyEndpoint.swift in Sources */,
 				2346DCFB2577C3A500F80661 /* JobsListConfigurator.swift in Sources */,
 				2346DD0B2577CE5500F80661 /* BaseRouter.swift in Sources */,
+				2336DD28257D6C600068ECFD /* VacancyInteractor.swift in Sources */,
+				2336DD2E257D74670068ECFD /* ApiPageEntitiy.swift in Sources */,
 				237A8BDB2577ADF60026898B /* AppDelegate.swift in Sources */,
 				2346DD58257814B800F80661 /* ExtendedLoggingInterceptor.swift in Sources */,
 				2346DD112577CEEC00F80661 /* NavigationControllerUtil.swift in Sources */,
 				2346DD3925780D9900F80661 /* VacancyUseCase.swift in Sources */,
+				230644DE257D58A300C4465A /* ServiceLayer.swift in Sources */,
 				237A8BDD2577ADF60026898B /* SceneDelegate.swift in Sources */,
 				2346DD1A2577CF4E00F80661 /* StubView.swift in Sources */,
 				2346DCE62577C2C500F80661 /* JobsListViewController.swift in Sources */,
 				2346DD2E257807EE00F80661 /* VacancyEntity.swift in Sources */,
+				230644C3257D3C4200C4465A /* EndPoint.swift in Sources */,
+				230644C7257D3C6200C4465A /* ApiClient.swift in Sources */,
 				2346DCEC2577C34A00F80661 /* JobsDetailViewController.swift in Sources */,
+				230644CE257D55D900C4465A /* VacancyApiService.swift in Sources */,
 				2346DD072577C3FC00F80661 /* JobsListHeaderCell.swift in Sources */,
 				2346DCC32577B56B00F80661 /* DI.swift in Sources */,
 				2346DCFE2577C3AD00F80661 /* JobsListRouter.swift in Sources */,
