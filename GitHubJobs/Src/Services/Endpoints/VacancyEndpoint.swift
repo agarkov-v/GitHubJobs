@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class VacancyEndpoint: Endpoint {
 
@@ -17,7 +18,7 @@ class VacancyEndpoint: Endpoint {
         self.page = page
     }
     
-    func makeRequest() -> URLRequest {
+    func makeRequest() -> DataRequest {
         var components = URLComponents()
         
         components.scheme = "https"
@@ -31,9 +32,9 @@ class VacancyEndpoint: Endpoint {
 
         let url = components.url!
 
-        let request = URLRequest(url: url)
+        let alamoRequest = AF.request(url)
 
-        return request
+        return alamoRequest
     }
 
     func parseResponse(from data: Data) -> Response? {

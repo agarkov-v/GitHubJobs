@@ -7,10 +7,11 @@
 
 import Foundation
 import RxSwift
+import Alamofire
 
 protocol VacancyApiService {
 
-    func getVacancy(page: APIPageModel, completion: @escaping (Result<[VacancyModel], Error>) -> Void)
+    func getVacancy(page: APIPageModel, completion: @escaping (Result<[VacancyModel], AFError>) -> Void)
 }
 
 class VacancyApiServiceImp: VacancyApiService {
@@ -24,8 +25,7 @@ class VacancyApiServiceImp: VacancyApiService {
     }
 
     // MARK: - Public Properties
-
-    func getVacancy(page: APIPageModel, completion: @escaping (Result<[VacancyModel], Error>) -> Void) {
+    func getVacancy(page: APIPageModel, completion: @escaping (Result<[VacancyModel], AFError>) -> Void) {
         let endpoint = VacancyEndpoint(page: page)
         apiClient.makeRequest(with: endpoint, completion: completion)
     }

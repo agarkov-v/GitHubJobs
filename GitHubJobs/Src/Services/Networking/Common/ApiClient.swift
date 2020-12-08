@@ -6,30 +6,32 @@
 //
 
 import Foundation
+import Alamofire
+import RxSwift
 
 protocol APIClient: class {
 
-    func makeRequest<Request>(with endpoint: Request, completion: @escaping (Result<Request.Response, Error>) -> Void
+    func makeRequest<Request>(with endpoint: Request, completion: @escaping (Result<Request.Response, AFError>) -> Void
     ) where Request: Endpoint
 }
 
 class APIClientImp: APIClient {
     
-    func makeRequest<Request>(with endpoint: Request, completion: @escaping (Result<Request.Response, Error>) -> Void) where Request: Endpoint {
+    func makeRequest<Request>(with endpoint: Request, completion: @escaping (Result<Request.Response, AFError>) -> Void) where Request: Endpoint {
         let urlRequest = endpoint.makeRequest()
 
-        URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-            guard let data = data, error == nil else {
-                completion(.failure(error ?? APIClientError.unknownError))
+        urlRequest.response(completionHandler: { data in
+            guard let mydata = data.data else {
+                completion(.failure(data.error!))
                 return
             }
 
-            if let response = endpoint.parseResponse(from: data) {
+            if let response = endpoint.parseResponse(from: mydata) {
                 completion(.success(response))
             } else {
-                completion(.failure(error!))
+                completion(.failure(data.error!))
             }
-        }.resume()
+        }).resume()
     }
 }
 

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.0)
   - CocoaDebug (1.5.8)
   - DITranquillity (4.1.7):
     - SwiftLazy (>= 1.1.6)
@@ -9,6 +10,7 @@ PODS:
   - SwiftLazy (1.1.7)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
   - CocoaDebug
   - DITranquillity
   - R.swift
@@ -16,6 +18,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - CocoaDebug
     - DITranquillity
     - R.swift
@@ -24,6 +27,7 @@ SPEC REPOS:
     - SwiftLazy
 
 SPEC CHECKSUMS:
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   CocoaDebug: fcf58698e6cebe8a4ea81b7c5aca44cfbd181d9c
   DITranquillity: 1cc4481cb316b8f142248d5dfd6e545d73714e7c
   R.swift: 4170fb7161c67be3bc1a847040b79367d69c419f
@@ -31,6 +35,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftLazy: dcb1edc6c2b633ba2e68f28554d9dd6d1c0bfd13
 
-PODFILE CHECKSUM: 5eba7b29ade2541e6021fe8d387261246b994d7d
+PODFILE CHECKSUM: 895f1059daf14554a694df432a65e3a3c073087e
 
 COCOAPODS: 1.10.0

@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol Endpoint {
     
     associatedtype Response
 
-    func makeRequest() -> URLRequest
+    func makeRequest() -> DataRequest
 
     func parseResponse(from data: Data) -> Response?
 }

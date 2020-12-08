@@ -8,6 +8,7 @@ target 'GitHubJobs' do
   # Pods for GitHubJobs
   pod 'R.swift'
   pod 'RxSwift'
+  pod 'Alamofire', '~> 5.2'
   pod 'DITranquillity'
   pod 'CocoaDebug', :configurations => ['Debug']
 

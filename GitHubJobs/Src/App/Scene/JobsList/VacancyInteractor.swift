@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import Alamofire
 
 enum VacancyState {
     case empty
@@ -61,7 +62,7 @@ class VacancyInteractorImp: VacancyInteractor {
     }
 
     // MARK: - Private Methods
-    private func handleResult(_ result: Result<[VacancyModel], Error>) {
+    private func handleResult(_ result: Result<[VacancyModel], AFError>) {
         switch result {
         case .success (let vacancy):
             self.error = nil
