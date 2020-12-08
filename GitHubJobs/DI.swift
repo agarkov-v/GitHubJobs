@@ -47,7 +47,6 @@ class DI {
         // MARK: - Util
         self.container.register(DateFormatUtilImp.init)
             .as(DateFormatterUtil.self)
-
     }
     
     static func resolve<T>() -> T {
