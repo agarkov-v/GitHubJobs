@@ -40,7 +40,6 @@ class JobsListPresenterImp: JobsListPresenter {
     private var disposeBag = DisposeBag()
     private var vacancyForDay = [VacancyForDayModel]()
     private let dateFormatterUtil: DateFormatterUtil
-    private var state: VacancyState = .empty
 
     // MARK: - Public Properties
     let shouldReloadData = PublishSubject<Void>()
@@ -86,19 +85,8 @@ class JobsListPresenterImp: JobsListPresenter {
     }
 
     private func stateSubscription() {
-        vacancyInteractor.didChangeState.subscribe(onNext: { [weak self] vacancyState in
+        vacancyInteractor.didChangeState.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-
-            switch vacancyState {
-            case .empty:
-                self.state = .empty
-            case .loadingData:
-                self.state = .loadingData
-            case .loadedSomeData:
-                self.state = .loadedSomeData
-            case .error:
-                self.state = .error
-            }
             self.shouldReloadData.onNext(())
         }).disposed(by: disposeBag)
     }
@@ -116,19 +104,15 @@ class JobsListPresenterImp: JobsListPresenter {
         if vacancyInteractor.hasMorePage {
             vacancyInteractor.loadPage()
             view.endRefreshing()
-            switch state {
+            switch vacancyInteractor.state {
             case .empty:
+                    view.showLoaderView()
+            default:
                 if let error = vacancyInteractor.error {
                     view.showErrorDialog(message: error.localizedDescription)
                     view.showEmptyMessage(.somethingWrong)
-                } else {
-                    view.showLoaderView()
                 }
-            case .error:
-                guard let error = vacancyInteractor.error else { return }
-                view.showErrorDialog(message: error.localizedDescription)
-                view.showEmptyMessage(.somethingWrong)
-            default:
+                debugPrint("vacancyInteractor.state: \(vacancyInteractor.state)")
                 return
             }
         }

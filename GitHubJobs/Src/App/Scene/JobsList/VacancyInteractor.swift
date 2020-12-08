@@ -20,6 +20,7 @@ protocol VacancyInteractor {
     var vacansyItems: PublishSubject<[VacancyModel]> { get }
     var didChangeState: PublishSubject<VacancyState> { get }
     var error: Error? { get set }
+    var state: VacancyState { get }
     var hasMorePage: Bool { get }
     func loadPage()
     func reset()
@@ -32,17 +33,17 @@ class VacancyInteractorImp: VacancyInteractor {
     private var loadedVacancy = [VacancyModel]()
     private let queue = DispatchQueue(label: "VacancyInteractorQueue")
     private let apiService: VacancyApiService
-    private var state: VacancyState = .empty {
-        didSet {
-            didChangeState.onNext(state)
-        }
-    }
 
     // MARK: - Public Properties
     var vacansyItems = PublishSubject<[VacancyModel]>()
     let didChangeState = PublishSubject<VacancyState>()
     var error: Error?
     var isLastPage = false
+    var state: VacancyState = .empty {
+        didSet {
+            didChangeState.onNext(state)
+        }
+    }
     var hasMorePage: Bool {
         if self.state == .loadingData {
             return false
@@ -106,7 +107,6 @@ class VacancyInteractorImp: VacancyInteractor {
             self.currentPage = 0
             self.isLastPage = false
             self.state = .empty
-//            self.error = nil
         }
     }
 }
