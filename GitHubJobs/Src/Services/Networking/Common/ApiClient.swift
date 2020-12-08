@@ -29,12 +29,9 @@ class APIClientImp: APIClient {
             if let response = endpoint.parseResponse(from: mydata) {
                 completion(.success(response))
             } else {
-                completion(.failure(data.error!))
+                guard let error = data.error else { return }
+                completion(.failure(error))
             }
         }).resume()
     }
-}
-
-enum APIClientError: Error {
-    case unknownError
 }
