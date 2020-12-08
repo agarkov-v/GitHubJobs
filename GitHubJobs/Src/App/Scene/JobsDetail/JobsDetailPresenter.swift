@@ -9,7 +9,7 @@ import Foundation
 
 protocol JobsDetailView: BaseView {
     
-    func setupView(_ vacancy: VacancyEntity)
+    func setupView(_ vacancy: VacancyModel)
 }
 
 protocol JobsDetailPresenter {
@@ -22,11 +22,11 @@ class JobsDetailPresenterImp: JobsDetailPresenter {
     // MARK: - Private Properties
     private weak var view: JobsDetailView!
     private let router: JobsDetailRouter
-    private var vacanyItem: VacancyEntity
+    private var vacanyItem: VacancyModel
     
     init(_ view: JobsDetailView,
          _ router: JobsDetailRouter,
-         _ vacanyItem: VacancyEntity) {
+         _ vacanyItem: VacancyModel) {
         self.view = view
         self.router = router
         self.vacanyItem = vacanyItem

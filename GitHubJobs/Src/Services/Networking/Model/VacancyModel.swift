@@ -1,5 +1,5 @@
 //
-//  VacancyEntity.swift
+//  VacancyModel.swift
 //  GitHubJobs
 //
 //  Created by Вячеслав Агарков on 02.12.2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VacancyEntity: Codable {
+struct VacancyModel: Codable {
     
     var id: String
     var createdAt: String

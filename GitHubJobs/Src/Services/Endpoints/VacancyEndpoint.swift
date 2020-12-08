@@ -9,11 +9,11 @@ import Foundation
 
 class VacancyEndpoint: Endpoint {
 
-    typealias Response = [VacancyEntity]
+    typealias Response = [VacancyModel]
 
-    let page: APIPageEntity
+    let page: APIPageModel
 
-    init(page: APIPageEntity) {
+    init(page: APIPageModel) {
         self.page = page
     }
     

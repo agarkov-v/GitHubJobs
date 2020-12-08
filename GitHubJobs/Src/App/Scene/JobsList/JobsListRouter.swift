@@ -8,7 +8,7 @@
 import UIKit
 
 protocol JobsListRouter: BaseRouter {
-    func openDetail(vacancyItem: VacancyEntity)
+    func openDetail(vacancyItem: VacancyModel)
 }
 
 class JobsListRouterImp: JobsListRouter {
@@ -19,7 +19,7 @@ class JobsListRouterImp: JobsListRouter {
         self.view = view
     }
     
-    func openDetail(vacancyItem: VacancyEntity) {
+    func openDetail(vacancyItem: VacancyModel) {
         JobsDetailConfiguratorImp.open(navigationController: view.navigationController!, vacancyItem: vacancyItem)
     }
     

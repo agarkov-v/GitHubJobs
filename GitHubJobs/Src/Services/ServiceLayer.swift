@@ -9,6 +9,7 @@ import Foundation
 
 class ServiceLayer {
 
+    //один из вариантов DI
     public static let shared = ServiceLayer()
     public lazy var vacancyApiService: VacancyApiService = VacancyApiServiceImp()
 }

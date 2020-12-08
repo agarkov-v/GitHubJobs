@@ -17,7 +17,7 @@ enum VacancyState {
 
 protocol VacancyInteractor {
 
-    var vacansyItems: PublishSubject<[VacancyEntity]> { get }
+    var vacansyItems: PublishSubject<[VacancyModel]> { get }
     var didChangeState: PublishSubject<VacancyState> { get }
     var error: Error? { get set }
     var hasMorePage: Bool { get }
@@ -29,7 +29,7 @@ class VacancyInteractorImp: VacancyInteractor {
 
     // MARK: - Private Properties
     private var currentPage = 0
-    private var loadedVacancy = [VacancyEntity]()
+    private var loadedVacancy = [VacancyModel]()
     private let queue = DispatchQueue(label: "VacancyInteractorQueue")
     private let apiService: VacancyApiService
     private var state: VacancyState = .empty {
@@ -39,7 +39,7 @@ class VacancyInteractorImp: VacancyInteractor {
     }
 
     // MARK: - Public Properties
-    var vacansyItems = PublishSubject<[VacancyEntity]>()
+    var vacansyItems = PublishSubject<[VacancyModel]>()
     let didChangeState = PublishSubject<VacancyState>()
     var error: Error?
     var isLastPage = false
@@ -50,12 +50,17 @@ class VacancyInteractorImp: VacancyInteractor {
         return !isLastPage
     }
 
-    init(apiService: VacancyApiService = ServiceLayer.shared.vacancyApiService) {
+    // пример использования ServiceLayer
+//    init(apiService: VacancyApiService = ServiceLayer.shared.vacancyApiService) {
+//        self.apiService = apiService
+//    }
+
+    init(apiService: VacancyApiService = DI.resolve()) {
         self.apiService = apiService
     }
 
     // MARK: - Private Methods
-    private func handleResult(_ result: Result<[VacancyEntity], Error>) {
+    private func handleResult(_ result: Result<[VacancyModel], Error>) {
         switch result {
         case .success (let vacancy):
             self.error = nil
@@ -82,7 +87,7 @@ class VacancyInteractorImp: VacancyInteractor {
             let semaphore = DispatchSemaphore(value: 0)
 
             self.state = .loadingData
-            let page = APIPageEntity(page: self.currentPage + 1)
+            let page = APIPageModel(page: self.currentPage + 1)
             self.currentPage += 1
 
             self.apiService.getVacancy(page: page, completion: { [weak self] result in

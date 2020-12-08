@@ -38,7 +38,7 @@ class JobsListPresenterImp: JobsListPresenter {
     private let router: JobsListRouter
     private let vacancyInteractor: VacancyInteractor
     private var disposeBag = DisposeBag()
-    private var vacancyForDay = [VacancyForDayEntity]()
+    private var vacancyForDay = [VacancyForDayModel]()
     private let dateFormatterUtil: DateFormatterUtil
     private var state: VacancyState = .empty
 
@@ -58,12 +58,12 @@ class JobsListPresenterImp: JobsListPresenter {
     }
     
     // MARK: - Private Methods
-    private func configurVacancyForDay(vacancy: [VacancyEntity]) {
-        var vacancyForDayDict: [Date: [VacancyEntity]] = [Date: [VacancyEntity]]()
+    private func configurVacancyForDay(vacancy: [VacancyModel]) {
+        var vacancyForDayDict: [Date: [VacancyModel]] = [Date: [VacancyModel]]()
         vacancyForDayDict = Dictionary(grouping: vacancy, by: { dateFormatterUtil.convertDateFormatToDate( dateString: $0.createdAt, fromFormat: "EEE MMM d HH:mm:ss yyyy", toFotmat: "dd/MM/yyyy") })
         
         vacancyForDayDict.forEach { (date, vacancyes) in
-            self.vacancyForDay.append(VacancyForDayEntity(date: date, vacancyes: vacancyes))
+            self.vacancyForDay.append(VacancyForDayModel(date: date, vacancyes: vacancyes))
         }
         
         vacancyForDay.sort(by: { $0.date > $1.date })

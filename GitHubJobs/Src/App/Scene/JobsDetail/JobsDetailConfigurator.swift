@@ -9,14 +9,14 @@ import UIKit
 
 class JobsDetailConfiguratorImp {
     
-    func configure(view: JobsDetailViewController, vacancyItem: VacancyEntity) {
+    func configure(view: JobsDetailViewController, vacancyItem: VacancyModel) {
         let router = JobsDetailRouterImp(view)
         let presenter = JobsDetailPresenterImp(view, router, vacancyItem)
         view.presenter = presenter
         view.dateFormatterUtil = DI.resolve()
     }
     
-    static func open(navigationController: UINavigationController, vacancyItem: VacancyEntity) {
+    static func open(navigationController: UINavigationController, vacancyItem: VacancyModel) {
         let view = R.storyboard.jobsDetail.jobsDetailVC()!
         JobsDetailConfiguratorImp().configure(view: view, vacancyItem: vacancyItem)
         navigationController.pushViewController(view, animated: true)

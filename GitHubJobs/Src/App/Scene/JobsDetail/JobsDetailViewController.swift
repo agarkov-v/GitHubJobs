@@ -41,7 +41,7 @@ class JobsDetailViewController: UIViewController {
 
 extension JobsDetailViewController: JobsDetailView {
     
-    func setupView(_ vacancy: VacancyEntity) {
+    func setupView(_ vacancy: VacancyModel) {
         self.navigationItem.title = vacancy.title
         vacancyLabel.text = vacancy.title
         companyNameLabel.text = vacancy.company

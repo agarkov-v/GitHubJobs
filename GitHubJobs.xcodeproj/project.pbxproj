@@ -15,12 +15,9 @@
 		230644CE257D55D900C4465A /* VacancyApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644CD257D55D900C4465A /* VacancyApiService.swift */; };
 		230644DE257D58A300C4465A /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230644DD257D58A300C4465A /* ServiceLayer.swift */; };
 		2336DD28257D6C600068ECFD /* VacancyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336DD27257D6C600068ECFD /* VacancyInteractor.swift */; };
-		2336DD2E257D74670068ECFD /* ApiPageEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336DD2D257D74670068ECFD /* ApiPageEntitiy.swift */; };
+		2336DD2E257D74670068ECFD /* APIPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336DD2D257D74670068ECFD /* APIPageModel.swift */; };
 		2346DCA42577B40D00F80661 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCA32577B40D00F80661 /* R.generated.swift */; };
 		2346DCC32577B56B00F80661 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCC22577B56B00F80661 /* DI.swift */; };
-		2346DCCB2577B6A200F80661 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCCA2577B6A200F80661 /* ApiEndpoint.swift */; };
-		2346DCCF2577B6BA00F80661 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCCE2577B6BA00F80661 /* Requests.swift */; };
-		2346DCD22577B6CC00F80661 /* ApiBaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCD12577B6CC00F80661 /* ApiBaseGateway.swift */; };
 		2346DCE22577C1FF00F80661 /* JobsDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2346DCE12577C1FF00F80661 /* JobsDetail.storyboard */; };
 		2346DCE62577C2C500F80661 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCE52577C2C500F80661 /* JobsListViewController.swift */; };
 		2346DCEC2577C34A00F80661 /* JobsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DCEB2577C34A00F80661 /* JobsDetailViewController.swift */; };
@@ -43,11 +40,7 @@
 		2346DD1D2577CF4E00F80661 /* StubLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD172577CF4E00F80661 /* StubLoad.swift */; };
 		2346DD252577D1C300F80661 /* TableViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD242577D1C300F80661 /* TableViewUtil.swift */; };
 		2346DD282577D1DC00F80661 /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD272577D1DC00F80661 /* DateFormatterUtil.swift */; };
-		2346DD2E257807EE00F80661 /* VacancyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD2D257807EE00F80661 /* VacancyEntity.swift */; };
-		2346DD3225780C7100F80661 /* ApiVacancyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD3125780C7100F80661 /* ApiVacancyGateway.swift */; };
-		2346DD3925780D9900F80661 /* VacancyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD3825780D9900F80661 /* VacancyUseCase.swift */; };
-		2346DD58257814B800F80661 /* ExtendedLoggingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD57257814B800F80661 /* ExtendedLoggingInterceptor.swift */; };
-		2346DD5C2578156300F80661 /* ErrorResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD5B2578156300F80661 /* ErrorResponseHandler.swift */; };
+		2346DD2E257807EE00F80661 /* VacancyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DD2D257807EE00F80661 /* VacancyModel.swift */; };
 		237A8BDB2577ADF60026898B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A8BDA2577ADF60026898B /* AppDelegate.swift */; };
 		237A8BDD2577ADF60026898B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A8BDC2577ADF60026898B /* SceneDelegate.swift */; };
 		237A8BE22577ADF60026898B /* JobsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 237A8BE02577ADF60026898B /* JobsList.storyboard */; };
@@ -65,12 +58,9 @@
 		230644CD257D55D900C4465A /* VacancyApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyApiService.swift; sourceTree = "<group>"; };
 		230644DD257D58A300C4465A /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		2336DD27257D6C600068ECFD /* VacancyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyInteractor.swift; sourceTree = "<group>"; };
-		2336DD2D257D74670068ECFD /* ApiPageEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPageEntitiy.swift; sourceTree = "<group>"; };
+		2336DD2D257D74670068ECFD /* APIPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPageModel.swift; sourceTree = "<group>"; };
 		2346DCA32577B40D00F80661 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		2346DCC22577B56B00F80661 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
-		2346DCCA2577B6A200F80661 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
-		2346DCCE2577B6BA00F80661 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
-		2346DCD12577B6CC00F80661 /* ApiBaseGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBaseGateway.swift; sourceTree = "<group>"; };
 		2346DCE12577C1FF00F80661 /* JobsDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobsDetail.storyboard; sourceTree = "<group>"; };
 		2346DCE52577C2C500F80661 /* JobsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		2346DCEB2577C34A00F80661 /* JobsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsDetailViewController.swift; sourceTree = "<group>"; };
@@ -93,11 +83,7 @@
 		2346DD172577CF4E00F80661 /* StubLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubLoad.swift; sourceTree = "<group>"; };
 		2346DD242577D1C300F80661 /* TableViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewUtil.swift; sourceTree = "<group>"; };
 		2346DD272577D1DC00F80661 /* DateFormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtil.swift; sourceTree = "<group>"; };
-		2346DD2D257807EE00F80661 /* VacancyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyEntity.swift; sourceTree = "<group>"; };
-		2346DD3125780C7100F80661 /* ApiVacancyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiVacancyGateway.swift; sourceTree = "<group>"; };
-		2346DD3825780D9900F80661 /* VacancyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyUseCase.swift; sourceTree = "<group>"; };
-		2346DD57257814B800F80661 /* ExtendedLoggingInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedLoggingInterceptor.swift; sourceTree = "<group>"; };
-		2346DD5B2578156300F80661 /* ErrorResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseHandler.swift; sourceTree = "<group>"; };
+		2346DD2D257807EE00F80661 /* VacancyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyModel.swift; sourceTree = "<group>"; };
 		237A8BD72577ADF60026898B /* GitHubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		237A8BDA2577ADF60026898B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		237A8BDC2577ADF60026898B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +138,7 @@
 		230644C0257D3AB300C4465A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				2346DCD72577B71B00F80661 /* Model */,
 				230644C1257D3C3900C4465A /* Common */,
 			);
 			path = Networking;
@@ -178,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				230644BF257D3AA300C4465A /* Services */,
-				2346DCC72577B66700F80661 /* Core */,
 				2346DCC82577B66C00F80661 /* App */,
 			);
 			path = Src;
@@ -194,17 +180,6 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		2346DCC72577B66700F80661 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				2346DCC92577B67C00F80661 /* ApiClient */,
-				2346DCD52577B70200F80661 /* Gateway */,
-				2346DCD62577B70F00F80661 /* UseCases */,
-				2346DCD72577B71B00F80661 /* Entity */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		2346DCC82577B66C00F80661 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,50 +189,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		2346DCC92577B67C00F80661 /* ApiClient */ = {
+		2346DCD72577B71B00F80661 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2346DD56257814AA00F80661 /* Interceptor */,
-				2346DCD42577B6E000F80661 /* ResponseHandler */,
-				2346DCCA2577B6A200F80661 /* ApiEndpoint.swift */,
-				2346DCCE2577B6BA00F80661 /* Requests.swift */,
-				2346DCD12577B6CC00F80661 /* ApiBaseGateway.swift */,
-			);
-			path = ApiClient;
-			sourceTree = "<group>";
-		};
-		2346DCD42577B6E000F80661 /* ResponseHandler */ = {
-			isa = PBXGroup;
-			children = (
-				2346DD5B2578156300F80661 /* ErrorResponseHandler.swift */,
-			);
-			path = ResponseHandler;
-			sourceTree = "<group>";
-		};
-		2346DCD52577B70200F80661 /* Gateway */ = {
-			isa = PBXGroup;
-			children = (
-				2346DD3125780C7100F80661 /* ApiVacancyGateway.swift */,
-			);
-			path = Gateway;
-			sourceTree = "<group>";
-		};
-		2346DCD62577B70F00F80661 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				2346DD3825780D9900F80661 /* VacancyUseCase.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		2346DCD72577B71B00F80661 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				2346DD2D257807EE00F80661 /* VacancyEntity.swift */,
+				2346DD2D257807EE00F80661 /* VacancyModel.swift */,
 				230644B3257A8DD500C4465A /* VacancyForDayEntity.swift */,
-				2336DD2D257D74670068ECFD /* ApiPageEntitiy.swift */,
+				2336DD2D257D74670068ECFD /* APIPageModel.swift */,
 			);
-			path = Entity;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2346DCD82577B76000F80661 /* Scene */ = {
@@ -355,14 +294,6 @@
 				2346DD172577CF4E00F80661 /* StubLoad.swift */,
 			);
 			path = LoadView;
-			sourceTree = "<group>";
-		};
-		2346DD56257814AA00F80661 /* Interceptor */ = {
-			isa = PBXGroup;
-			children = (
-				2346DD57257814B800F80661 /* ExtendedLoggingInterceptor.swift */,
-			);
-			path = Interceptor;
 			sourceTree = "<group>";
 		};
 		237A8BCE2577ADF60026898B = {
@@ -564,16 +495,14 @@
 				2346DCFB2577C3A500F80661 /* JobsListConfigurator.swift in Sources */,
 				2346DD0B2577CE5500F80661 /* BaseRouter.swift in Sources */,
 				2336DD28257D6C600068ECFD /* VacancyInteractor.swift in Sources */,
-				2336DD2E257D74670068ECFD /* ApiPageEntitiy.swift in Sources */,
+				2336DD2E257D74670068ECFD /* APIPageModel.swift in Sources */,
 				237A8BDB2577ADF60026898B /* AppDelegate.swift in Sources */,
-				2346DD58257814B800F80661 /* ExtendedLoggingInterceptor.swift in Sources */,
 				2346DD112577CEEC00F80661 /* NavigationControllerUtil.swift in Sources */,
-				2346DD3925780D9900F80661 /* VacancyUseCase.swift in Sources */,
 				230644DE257D58A300C4465A /* ServiceLayer.swift in Sources */,
 				237A8BDD2577ADF60026898B /* SceneDelegate.swift in Sources */,
 				2346DD1A2577CF4E00F80661 /* StubView.swift in Sources */,
 				2346DCE62577C2C500F80661 /* JobsListViewController.swift in Sources */,
-				2346DD2E257807EE00F80661 /* VacancyEntity.swift in Sources */,
+				2346DD2E257807EE00F80661 /* VacancyModel.swift in Sources */,
 				230644C3257D3C4200C4465A /* EndPoint.swift in Sources */,
 				230644C7257D3C6200C4465A /* ApiClient.swift in Sources */,
 				2346DCEC2577C34A00F80661 /* JobsDetailViewController.swift in Sources */,
@@ -583,19 +512,14 @@
 				2346DCFE2577C3AD00F80661 /* JobsListRouter.swift in Sources */,
 				2346DD022577C3E500F80661 /* JobsListCell.swift in Sources */,
 				2346DCA42577B40D00F80661 /* R.generated.swift in Sources */,
-				2346DD3225780C7100F80661 /* ApiVacancyGateway.swift in Sources */,
 				2346DD1D2577CF4E00F80661 /* StubLoad.swift in Sources */,
 				2346DD252577D1C300F80661 /* TableViewUtil.swift in Sources */,
-				2346DCCF2577B6BA00F80661 /* Requests.swift in Sources */,
 				2346DCEF2577C38100F80661 /* JobsDetailPresenter.swift in Sources */,
 				230644B4257A8DD500C4465A /* VacancyForDayEntity.swift in Sources */,
-				2346DCD22577B6CC00F80661 /* ApiBaseGateway.swift in Sources */,
 				2346DCF82577C39D00F80661 /* JobsListPresenter.swift in Sources */,
 				2346DCF22577C38900F80661 /* JobsDetailConfigurator.swift in Sources */,
-				2346DD5C2578156300F80661 /* ErrorResponseHandler.swift in Sources */,
 				2346DD282577D1DC00F80661 /* DateFormatterUtil.swift in Sources */,
 				2346DD0E2577CE7D00F80661 /* BaseView.swift in Sources */,
-				2346DCCB2577B6A200F80661 /* ApiEndpoint.swift in Sources */,
 				230644B0257A5CD600C4465A /* CustomNavigationController.swift in Sources */,
 				2346DCF52577C39000F80661 /* JobsDetailRouter.swift in Sources */,
 			);

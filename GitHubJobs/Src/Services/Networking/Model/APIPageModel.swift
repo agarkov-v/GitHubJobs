@@ -1,5 +1,5 @@
 //
-//  ApiPageEntitiy.swift
+//  APIPageModel.swift
 //  GitHubJobs
 //
 //  Created by Вячеслав Агарков on 06.12.2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APIPageEntity {
+struct APIPageModel {
 
     let page: Int
 

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol JobsListCellView {
-    func setupCell(vacancy: VacancyEntity)
+    func setupCell(vacancy: VacancyModel)
 }
 
 class JobsListCell: UITableViewCell {
@@ -34,7 +34,7 @@ class JobsListCell: UITableViewCell {
 
 extension JobsListCell: JobsListCellView {
     
-    func setupCell(vacancy: VacancyEntity) {
+    func setupCell(vacancy: VacancyModel) {
         vacancyLabel.text = vacancy.title
         companyNameLabel.text = vacancy.company
         applyTextView.text = vacancy.howToApply
