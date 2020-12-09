@@ -19,7 +19,21 @@ class JobsListHeaderCell: UITableViewHeaderFooterView {
 
 extension JobsListHeaderCell: JobsListHeaderCellView {
     func setupCell(date: Date, dateFormatterUtil: DateFormatterUtil) {
-        let dateString = dateFormatterUtil.convertDateToString(date: date, format: "dd/MM/yyyy")
-        dateLabel.text = dateString
+        let now = Date()
+        let todayComponents = Calendar.current.dateComponents([.year, .month, .day], from: now)
+        let today = Calendar.current.date(from: todayComponents)!
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now)!
+
+        let todayString = dateFormatterUtil.convertDateToString(date: today, format: "dd/MM/yyyy")
+        let currentString = dateFormatterUtil.convertDateToString(date: date, format: "dd/MM/yyyy")
+        let yesterdayString = dateFormatterUtil.convertDateToString(date: yesterday, format: "dd/MM/yyyy")
+
+        if todayString == currentString {
+            dateLabel.text = "Today"
+        } else if yesterdayString == currentString {
+            dateLabel.text = "Yesterday"
+        } else {
+            dateLabel.text = currentString
+        }
     }
 }
