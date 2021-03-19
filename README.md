@@ -1,8 +1,8 @@
 # Ios Jobs
 
 - [Description in English](#Description-in-English)
-    - [About the project](#About-the-project)
-    - [Branches](#Branches)
+  - [About the project](#About-the-project)
+  - [Branches](#Branches)
 - [Описание на русском](#Описание-на-русском)
   - [О проекте](#О-проекте)
   - [Ветки](#Ветки)
