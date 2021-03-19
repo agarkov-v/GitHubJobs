@@ -1,5 +1,5 @@
 # Ios Jobs
-### Table of Contents
+
 - [Description in English](#Description-in-English)
     - [About the project](#About-the-project)
     - [Branches](#Branches)
